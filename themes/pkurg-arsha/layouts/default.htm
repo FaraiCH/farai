@@ -55,6 +55,16 @@
 
   <!-- Template Main JS File -->
   <script src="{{'assets/js/main.js' | theme }}"></script>
+    <script src="{{ [
+                'assets/vendor/jquery.js',
+                'assets/vendor/bootstrap.js',
+                'assets/vendor/codemirror/codemirror.js',
+                'assets/vendor/codemirror/twig.js',
+                'assets/javascript/app.js',
+            ]|theme }}"></script>
+
+    {% framework extras %}
+
   {% scripts %}
 </body>
 

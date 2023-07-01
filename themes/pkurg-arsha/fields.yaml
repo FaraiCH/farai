@@ -1,0 +1,25 @@
+fields:
+    canvas_styles:                    
+        label: Styles
+        type: textarea
+        default: >
+            '{{'assets/vendor/bootstrap/css/bootstrap.min.css' | theme }}',
+            '{{'assets/vendor/bootstrap-icons/bootstrap-icons.css' | theme }}',
+            '{{'assets/vendor/boxicons/css/boxicons.min.css' | theme }}',
+            '{{'assets/vendor/glightbox/css/glightbox.min.css' | theme }}',
+            '{{'assets/vendor/remixicon/remixicon.css' | theme }}',
+            '{{'assets/vendor/swiper/swiper-bundle.min.css' | theme }}',
+            '{{'assets/css/style.css' | theme }}',
+            '{{'assets/css/builder.css' | theme }}'
+
+    canvas_scripts:            
+        label: Scripts
+        type: textarea
+        default: >
+            '{{'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | theme }}',
+            '{{'assets/vendor/glightbox/js/glightbox.min.js' | theme }}',
+            '{{'assets/vendor/isotope-layout/isotope.pkgd.min.js' | theme }}',
+            '{{'assets/vendor/swiper/swiper-bundle.min.js' | theme }}',
+            '{{'assets/vendor/waypoints/noframework.waypoints.js' | theme }}',
+            '{{'assets/vendor/php-email-form/validate.js' | theme }}',
+            '{{'assets/js/main.js' | theme }}'

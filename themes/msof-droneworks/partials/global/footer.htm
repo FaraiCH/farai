@@ -1,0 +1,109 @@
+<footer>
+    <div class="footer-wrapper">
+        {# Footer start #}
+        <div class="footer-area footer-padding">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-4 col-md-7 col-sm-12">
+                        <div class="single-footer-caption mb-50">
+                            <div class="single-footer-caption">
+                                {# Logo #}
+                                <div class="footer-logo mb-40">
+                                    <a href="{{ url('/') }}"><img loading="lazy" src="{{ (this.theme.global_logo|length) ? this.theme.global_logo.path : 'assets/demo/logo.svg'|theme }}" alt="{{ this.theme.site_name }} logo" height="{{ this.theme.global_logo_height }}"></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p>{{ this.theme.global_company_statement|nl2br }}</p>
+                                    </div>
+                                    {% if this.theme.global_phone|length  or this.theme.global_email|length %}
+                                        <ul>
+                                            {% if this.theme.global_phone|length %}
+                                                <li class="number"><a href="tel:{{ this.theme.global_phone }}"><i class="fas fa-fw fa-phone"></i> {{ this.theme.global_phone }}</a></li>
+                                            {% endif %}
+                                            <li class="number"><a href="mailto:{{ this.theme.global_email }}"><i class="fas fa-fw fa-envelope"></i> {{ this.theme.global_email }}</a></li>
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if this.theme.global_im_repeater|length > 0 %}
+                        <div class="offset-xl-1 col-xl-2 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h3>{{ this.theme.global_im_title }}</h3>
+                                    <ul>
+                                        {% for item in this.theme.global_im_repeater %}
+                                            <li>
+                                            	{% if item.channel == 'Viber' %}
+                                            		<a tabindex="0" href="viber://chat?number={{ item.parameter }}">{{ item.channel }}</a>
+                                            	{% elseif item.channel == 'WhatsApp' %}
+                                            		<a tabindex="0" href="whatsapp://send?phone={{ item.parameter }}">{{ item.channel }}</a>
+                                            	{% elseif item.channel == 'Messenger' %}
+                                            		<a tabindex="0" href="https://m.me/{{ item.parameter }}">{{ item.channel }}</a>
+                                            	{% elseif item.channel == 'Skype' %}
+                                            		<a tabindex="0" href="skype:{{ item.parameter }}?chat">{{ item.channel }}</a>
+                                            	{% elseif item.channel == 'Telegram' %}
+                                            		<a tabindex="0" href="tg://resolve?domain=@{{ item.parameter }}">{{ item.channel }}</a>
+                                            	{% else %}
+                                            		<a tabindex="0" href="weixin://dl/chat?{{ item.parameter }}">{{ item.channel }}</a>
+                                            	{% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="col-xl-2 col-md-7 col-sm-6">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h3>Navigate to</h3>
+                                <ul>
+                                    <li><a href="{{ 'blog'|page }}">Blog</a></li>
+                                    <li><a href="{{ 'privacy-policy'|page }}">Privacy Policy</a></li>
+                                    <li><a href="{{ 'maintenance'|page }}">Maintenance</a></li>
+                                    <li><a href="{{ 'error-page-500'|page }}">Error Page (500)</a></li>
+                                    <li><a href="{{ 'page-not-found-404'|page }}">Page Not Found (404)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-12">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h3>{{ this.theme.global_newsletter_title }}</h3>
+                                <p>{{ this.theme.global_newsletter_text|nl2br }}</p>
+                                {% component 'newsletterForm' %}
+                            </div>
+                            {# Social #}
+                            {% if this.theme.global_social_repeater|length > 0 %}
+                                <div class="footer-social">
+                                    {% for item in this.theme.global_social_repeater %}
+                                        <a href="{{ item.link }}" aria-label="{{ item.label }}" target="_blank" rel="noopener noreferrer"><i class="{{ item.channel }}"></i></a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# Footer bottom area #}
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="footer-border">
+                    <div class="row">
+                        <div class="col-xl-12 ">
+                            <div class="footer-copy-right text-center">
+                                {# Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. #}
+                                <p>&copy; {{ 'now' | date('Y') }} {{ this.theme.site_name }}. All rights reserved | Template by <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">Colorlib</a> | Ported to October CMS by <a href="https://www.msof.me/" target="_blank" rel="noopener noreferrer">Marios Sofokleous</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# Footer end #}
+    </div>
+</footer>

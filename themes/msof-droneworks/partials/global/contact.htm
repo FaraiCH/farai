@@ -1,0 +1,8 @@
+<div class="visit-tailor-area visit-tailor-area_inverse contact-section" id="contact">
+    <div style="background-image:url({{ (this.theme.contact_background|length) ? this.theme.contact_background|media : 'assets/demo/contact-bg.jpg'|theme }});" class="tailor-offers"></div>
+    <div class="tailor-details">
+        <h2>{{ this.theme.contact_title }}</h2>
+        <p class="tittle-pera1">{{ this.theme.contact_lead|nl2br }}</p>
+        {% component 'contactForm' %}
+    </div>
+</div>

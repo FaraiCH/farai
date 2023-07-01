@@ -1,0 +1,219 @@
+#contactForm p, #newsletterForm p {
+    margin-bottom: 0;
+    color: #333;
+}
+
+#coverTitle {
+    color: #fff;
+    font-size: 70px;
+    margin-bottom: 0;
+
+    @media #{$xs} {
+        font-size: 50px;
+    }
+}
+
+.services-active,
+.posts-active {
+    .slick-slide {
+        margin: 0 15px;
+    }
+
+    .slick-list {
+        margin: 0 -15px;
+    }
+}
+
+.slick-dots {
+    padding-top: 16px;
+    text-align: center;
+
+    li {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+
+        button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+            cursor: pointer;
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: rgba($theme-color, .5);
+        }
+
+        &.slick-active {
+            button {
+                background: rgba($theme-color, 1);
+            }
+        }
+    }
+}
+
+/**
+ * Magnific Popup: Simple fade transition
+ */
+.mfp-fade.mfp-bg {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.95;
+}
+
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+    opacity: 1;
+}
+
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+    opacity: 0;
+}
+
+.white-popup-block {
+    background: #FFF;
+    padding: 20px 30px;
+    text-align: left;
+    max-width: 650px;
+    margin: 40px auto;
+    position: relative;
+}
+
+.posts-section {
+    .blog_details {
+        box-shadow: none;
+    }
+
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-slide {
+        height: inherit !important;
+    }
+
+    .blog_details {
+        a {
+            .blog-head {
+                color: #333;
+            }
+        }
+
+        p {
+            color: #333;
+        }
+    }
+}
+
+.home-section-padding {
+    padding: 120px 0;
+
+    @media #{$lg} {
+        padding: 100px 0;
+    }
+
+    @media #{$md} {
+        padding: 70px 0;
+    }
+
+    @media #{$sm} {
+        padding: 70px 0;
+    }
+
+    @media #{$xs} {
+        padding: 70px 0;
+    }
+}
+
+.newsletter-form {
+    .submit-btn2 {
+        height: 50px;
+        padding: 10px 25px;
+    }
+    // Start contact
+    input:not([type="checkbox"]) {
+        border: 1px solid #cdcdcd;
+        height: 50px;
+        width: 100%;
+        padding: 10px 25px;
+        color: #071112;
+        font-weight: 500;
+        border-radius: 0px;
+        .list {
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+}
+
+// Magnific popup fix
+
+body.mfp-active {
+	-webkit-overflow-scrolling: auto;
+	width: 100%;
+	position: fixed;
+	overflow: auto;
+}
+
+body .mfp-wrap {
+	position: fixed;
+	overflow: auto;
+	top: 0 !important;
+}
+
+// FAQ accordion
+
+.faq-accordion {
+    .card {
+        background-color: transparent;
+    }
+    .card-header {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: -1px;
+    }
+    .card-body {
+        padding: 1rem;
+        color: #333;
+    }
+    .btn {
+        padding: 1rem;
+        text-transform: none;
+        box-shadow: none;
+        color: #333;
+        font-family: $font_2;
+        white-space: normal;
+        background-color: #eee !important;
+        background-image: none;
+        &:hover {
+            background-image: none !important;
+        }
+        &.collapsed {
+            background-image: none;
+            color: #333;
+            background-color: #eee;
+        }
+    }
+}

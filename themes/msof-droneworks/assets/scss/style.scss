@@ -1,0 +1,28 @@
+// Default
+@import 'variables';
+@import 'mixins';
+@import 'overlay';
+@import 'common';
+
+// Homepage
+@import 'header';
+@import 'h1-hero';
+// @import 'officeEnvrolment';
+// @import 'pricing';
+@import 'testimonial';
+@import 'contact';
+
+@import 'services_section';
+@import 'video-area';
+@import 'visit-tailor';
+@import 'about';
+@import 'footer';
+
+// Secondary pages
+@import 'blog_page';
+// @import 'bradcam';
+@import 'extend';
+// @import 'elements';
+
+// Corrections/Improvements
+@import 'extra';

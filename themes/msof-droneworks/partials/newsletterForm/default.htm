@@ -1,0 +1,9 @@
+<form id="newsletterForm" class="newsletter-form" data-request="{{ __SELF__ }}::onFormSubmit">
+    {{ form_token() }}
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+    <div class="form-group js-hide">
+        <label class="sr-only" for="newsletterEmail">Email*</label>
+        <input id="newsletterEmail" type="email" name="email" placeholder="Email*" required>
+    </div>
+    <button class="submit-btn2 js-hide" type="submit">Join now</button>
+</form>

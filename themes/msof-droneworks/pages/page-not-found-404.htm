@@ -1,0 +1,48 @@
+url = "/404"
+title = "Page not found (404)"
+meta_description = "Live demo of the DroneWorks theme for October CMS."
+==
+{% set name = this.theme.site_name|url_encode %}
+{% set icon_192 = ((this.theme.icons_icon_png|length)?this.theme.icons_icon_png|resize(192):'assets/demo/icon-192.png'|theme)|url_encode %}
+{% set icon_512 = ((this.theme.icons_icon_png|length)?this.theme.icons_icon_png.path:'assets/demo/icon-512.png'|theme)|url_encode %}
+{% set data_url = 'data:application/manifest+json,'~'{"name":"'|url_encode~name~'","short_name":"'|url_encode~name~'","icons":[{"src":"'|url_encode~icon_192~'","type":"image/png","sizes":"192x192"},{"src":"'|url_encode~icon_512~'","type":"image/png","sizes":"512x512"}]}'|url_encode %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        {# ESSENTIAL #}
+        <title>{% if this.page.meta_title %}{{ this.page.meta_title }}{% else %}{{ this.page.title }} | {{ this.theme.site_name }}{% endif %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="author" content="Marios Sofokleous">
+        <meta name="description" content="{% if this.page.meta_description %}{{ this.page.meta_description }}{% else %}{{ this.page.description }}{% endif %}">
+        <meta name="theme-color" content="{{ this.theme.theming_meta_theme_color }}">
+
+        {# OPEN GRAPH #}
+        <meta property="og:title" content="{% if this.page.meta_title %}{{ this.page.meta_title }}{% else %}{{ this.page.title }}{% endif %}">
+        <meta property="og:description" content="{% if this.page.meta_description %}{{ this.page.meta_description }}{% else %}{{ this.page.description }}{% endif %}">
+        <meta property="og:image" content="{{ 'assets/images/theme-preview.png'|theme }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ ''|page }}">
+        <meta property="og:site_name" content="{{ this.theme.site_name }}">
+
+        {# BOOTSTRAP #}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+        {# FAVICON AND APP ICONS #}
+        <link rel="icon" href="{{ (this.theme.icons_favicon|length) ? this.theme.icons_favicon.path : 'assets/demo/favicon.ico'|theme }}"><!-- 32×32 -->
+        <link rel="icon" href="{{ (this.theme.icons_icon_svg|length) ? this.theme.icons_icon_svg.path : 'assets/demo/icon.svg'|theme }}" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="{{ (this.theme.icons_icon_png|length) ? this.theme.icons_icon_png.path|resize(180) : 'assets/demo/apple-touch-icon.png'|theme }}"><!-- 180×180 -->
+        <link rel="manifest" href="{{data_url}}" />
+    </head>
+    <body>
+        <div style="max-width:740px;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);" class="container">
+            <div class="alert alert-danger" role="alert">
+                <h1 class="alert-heading">404 - Page not found</h1>
+                <p class="lead">We're sorry, but the page you've requested cannot be found.</p>
+                <a class="btn btn-primary btn-block" href="{{ url('/') }}">TO HOME</a>
+            </div>
+        </div>
+    </body>
+</html>

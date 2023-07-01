@@ -1,0 +1,109 @@
+url = "/blog/:page?"
+layout = "default"
+title = "Blog"
+meta_description = "Live demo of the DroneWorks theme for October CMS."
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "category"
+postPage = "post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "category"
+==
+{% set posts = blogPosts.posts %}
+
+{% partial "global/page-cover" title="Blog" align="left" %}
+
+{# BLOG AREA #}
+<section class="blog_area home-section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+
+                    {# POSTS #} {# 768x432 #}
+                    {% for post in posts %}
+                        {% set featured_image = post.featured_images.first %}
+                        <article class="blog_item border">
+                            <div class="blog_item_img">
+                                <img style="height:auto;" width="768" height="432" class="card-img rounded-0" src="{{ featured_image ? featured_image.thumb(768,auto) : 'assets/demo/post.jpg'|theme }}" alt="{{ featured_image.description ? featured_image.description : post.title }}">
+                                <div class="blog_item_date text-center">
+                                    <div>{{ post.published_at|date('d') }}</div>
+                                    <p>{{ post.published_at|date('M') }}</p>
+                                </div>
+                            </div>
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="{{ post.url }}">
+                                    <h2 class="blog-head">{{ post.title }}</h2>
+                                </a>
+                                <p>{{ post.summary|nl2br }}</p>
+                                {% if post.categories.count %}
+                                    <ul class="blog-info-link">
+                                        <li>
+                                            <i class="fas fa-tags"></i>
+                                            {% for category in post.categories %}
+                                                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %},{% endif %}
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </article>
+                    {% endfor %}
+                    
+                    {# PAGINATION #}
+                    {% if posts.lastPage > 1 %}
+                        <nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                                {% if posts.currentPage > 1 %}
+                                    <li class="page-item">
+                                        <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}" class="page-link" aria-label="Previous">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% for page in 1..posts.lastPage %}
+                                    <li class="page-item {{ posts.currentPage == page ? 'active' : '' }}">
+                                        <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}" class="page-link">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% if posts.lastPage > posts.currentPage %}
+                                    <li class="page-item">
+                                        <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}" class="page-link" aria-label="Next">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    {% endif %}
+                </div>
+            </div>
+            {% if blogCategories.categories|length %}
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget post_category_widget border mb-0">
+                            <h3 class="widget_title">Category</h3>
+                            <ul class="list cat-list">
+                                {% for category in blogCategories.categories %}
+                                    <li>
+                                        <a href="{{ category.url }}" class="d-flex">
+                                            <p style="color:#505050;">{{ category.name }}</p>
+                                            <p style="color:#505050;">({{ category.post_count }})</p>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

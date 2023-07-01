@@ -1,0 +1,585 @@
+name: 'DroneWorks'
+description: 'Single-page drone & UAV business services theme with a blog.'
+author: 'Marios Sofokleous'
+homepage: 'https://www.msof.me/'
+authorCode: Msof
+code: DroneWorks
+database: '0'
+previewImage: assets/images/theme-preview.png
+require:
+    - RainLab.Blog
+    - BlakeJones.MagicForms
+    - BizMark.Quicksilver
+form:
+    fields:
+        site_config_desc:
+            label: 'DroneWorks theme options'
+            type: section
+            comment: 'Single-page drone & UAV business services theme with a blog.'
+    tabs:
+        fields:
+            hero_repeater:
+                label: Slides
+                type: repeater
+                prompt: 'Add a new slide'
+                form:
+                    fields:
+                        enable:
+                            label: 'Display this slide?'
+                            type: switch
+                            default: 1
+                        background:
+                            label: 'Background (1600x900)'
+                            type: mediafinder
+                            mode: image
+                            span: left
+                        title:
+                            label: Title
+                            type: textarea
+                            size: small
+                            comment: 'e.g. Aerial photography for journalism and film'
+                        lead:
+                            label: Lead
+                            type: textarea
+                            size: small
+                        link_label:
+                            label: 'Link label'
+                            type: text
+                            comment: 'e.g. Call us | Email  us | Learn more | Download catalog | Explore services'
+                        link_url:
+                            label: 'Link URL'
+                            type: text
+                            comment: 'e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /#services'
+                        link_new_tab:
+                            label: 'Open link in new tab?'
+                            type: checkbox
+                            span: left
+                            default: false
+                        link_same_host:
+                            label: 'Same-host link?'
+                            type: checkbox
+                            span: right
+                            default: true
+                default: '[{"enable":"1","background":"","title":"Geographic mapping of inaccessible locations","lead":"Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug.","link_label":"Explore Services","link_url":"#services","link_new_tab":false,"link_same_host":true},{"enable":"1","background":"","title":"Aerial photography for journalism and film","lead":"Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug.","link_label":"Explore Services","link_url":"#services","link_new_tab":false,"link_same_host":true}]'
+                tab: Hero
+            about_title:
+                label: Title
+                type: text
+                tab: About
+                comment: 'e.g. About us'
+                default: 'About us'
+            about_lead:
+                label: Lead
+                type: textarea
+                size: small
+                tab: About
+                default: 'Inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.'
+            about_text:
+                label: Text
+                type: textarea
+                size: large
+                tab: About
+                default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas suscipit dolor mi, sit amet mollis magna scelerisque sit amet. Nam imperdiet bibendum velit, sit amet dapibus mi iaculis nec. Proin ultrices, leo sit amet aliquet lacinia, urna nunc tincidunt leo, eget viverra erat arcu ac sapien.'
+            about_image:
+                label: 'Image (690x690)'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: About
+            about_image_alt:
+                label: 'Alternative text'
+                type: text
+                span: right
+                tab: About
+                comment: 'Describe the image as specifically possible. Keep character count at arround 125 or less.'
+                default: ...
+            about_image_box_number:
+                label: 'Box number'
+                type: text
+                tab: About
+                default: 25
+            about_image_box_text:
+                label: 'Box text'
+                type: text
+                tab: About
+                comment: 'e.g. Year''s experience'
+                default: 'Year''s experience'
+            services_background:
+                label: 'Background (945x600)'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Services
+            services_title:
+                label: Title
+                type: text
+                tab: Services
+                comment: 'e.g. Our services'
+                default: 'Our services'
+            services_lead:
+                label: Lead
+                type: textarea
+                size: small
+                tab: Services
+                default: 'Inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.'
+            services_text:
+                label: Text
+                type: textarea
+                size: large
+                tab: Services
+                default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas suscipit dolor mi, sit amet mollis magna scelerisque sit amet. Nam imperdiet bibendum velit, sit amet dapibus mi iaculis nec. Proin ultrices, leo sit amet aliquet lacinia, urna nunc tincidunt leo, eget viverra erat arcu ac sapien.'
+            services_repeater:
+                label: Services
+                type: repeater
+                prompt: 'Add a new service'
+                form:
+                    fields:
+                        enable:
+                            label: 'Display this service?'
+                            type: switch
+                            default: 1
+                        image:
+                            label: 'Image (449x449)'
+                            type: mediafinder
+                            mode: image
+                            span: left
+                        image_alt:
+                            label: 'Alternative text'
+                            type: text
+                            span: right
+                            comment: 'Describe the image as specifically possible. Keep character count at arround 125 or less.'
+                        title:
+                            label: Title
+                            type: text
+                            comment: 'e.g. 3D Mapping'
+                        excerpt:
+                            label: Excerpt
+                            type: textarea
+                            size: small
+                        text:
+                            label: 'Popup text'
+                            type: richeditor
+                            size: huge
+                default: '[{"enable":"1","image":"","image_alt":"Alternative text","title":"3D Mapping","excerpt":"Aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.","text":""},{"enable":"1","image":"","image_alt":"...","title":"Visual Inspections","excerpt":"Aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.","text":""},{"enable":"1","image":"","image_alt":"...","title":"Construction Site Data","excerpt":"Aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.","text":""},{"enable":"1","image":"","image_alt":"...","title":"Search & Rescue","excerpt":"Aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.","text":""}]'
+                tab: Services
+            projects_background:
+                label: 'Background (945x600)'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Projects
+            projects_title:
+                label: Title
+                type: text
+                tab: Projects
+                comment: 'e.g. Notable projects'
+                default: 'Notable projects'
+            projects_lead:
+                label: Lead
+                type: textarea
+                size: small
+                tab: Projects
+                default: 'Inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.'
+            projects_text:
+                label: Text
+                type: textarea
+                size: large
+                tab: Projects
+                default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas suscipit dolor mi, sit amet mollis magna scelerisque sit amet. Nam imperdiet bibendum velit, sit amet dapibus mi iaculis nec. Proin ultrices, leo sit amet aliquet lacinia, urna nunc tincidunt leo, eget viverra erat arcu ac sapien.'
+            projects_repeater:
+                label: Projects
+                type: repeater
+                prompt: 'Add a new project'
+                form:
+                    fields:
+                        enable:
+                            label: 'Display this project?'
+                            type: switch
+                            default: 1
+                        image:
+                            label: 'Image (449x449)'
+                            type: mediafinder
+                            mode: image
+                            span: left
+                        image_alt:
+                            label: 'Alternative text'
+                            type: text
+                            span: right
+                            comment: 'Describe the image as specifically possible. Keep character count at arround 125 or less.'
+                        title:
+                            label: Title
+                            type: text
+                            comment: 'e.g. Video For A Villa In Miami'
+                        excerpt:
+                            label: Excerpt
+                            type: textarea
+                            size: small
+                        popup_type:
+                            label: 'Popup type'
+                            type: balloon-selector
+                            default: video
+                            options:
+                                text: Text
+                                video: Video
+                        text:
+                            label: 'Popup text'
+                            type: richeditor
+                            size: giant
+                            trigger:
+                                action: show
+                                field: popup_type
+                                condition: 'value[text]'
+                        video_url:
+                            label: 'Popup video URL'
+                            type: text
+                            trigger:
+                                action: show
+                                field: popup_type
+                                condition: 'value[video]'
+                            comment: 'e.g. https://www.youtube.com/watch?v=kK0zZL6-uOI | https://vimeo.com/198442959'
+                default: '[{"enable":"1","image":"","image_alt":"...","title":"Video For A Villa In Miami","excerpt":"Aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.","popup_type":"video","text":"","video_url":""},{"enable":"1","image":"","image_alt":"...","title":"Remote Pipeline Inspection","excerpt":"Aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.","popup_type":"text","text":"","video_url":""},{"enable":"1","image":"","image_alt":"...","title":"WRC Rally Finland Drone Coverage","excerpt":"Aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.","popup_type":"video","text":"","video_url":""},{"enable":"1","image":"","image_alt":"...","title":"SAR Operation In California","excerpt":"Aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug nulla pariatur.","popup_type":"text","text":"","video_url":""}]'
+                tab: Projects
+            faqs_video_url:
+                label: 'Video URL'
+                type: text
+                tab: FAQs
+                comment: 'e.g. https://www.youtube.com/watch?v=3zx4DlAxoeo | https://vimeo.com/198442959'
+                default: 'https://www.youtube.com/watch?v=3zx4DlAxoeo'
+            faqs_title:
+                label: Title
+                type: text
+                tab: FAQs
+                comment: 'e.g. Frequently asked questions'
+                default: 'Frequently asked questions'
+            faqs_repeater:
+                label: FAQs
+                type: repeater
+                prompt: 'Add a new FAQ'
+                form:
+                    fields:
+                        question:
+                            label: Question
+                            type: text
+                            comment: 'e.g. What service areas do you cover?'
+                        answer:
+                            label: Answer
+                            type: textarea
+                            size: small
+                default: '[{"question":"How long does it take to receive my videos?","answer":"..."},{"question":"What service areas do you cover?","answer":"..."},{"question":"What type of drones do you fly?","answer":"..."},{"question":"Do you have insurance?","answer":"..."},{"question":"How long does it take to film a listing?","answer":"..."}]'
+                tab: FAQs
+            testimonials_background:
+                label: 'Background (1920x628)'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Testimonials
+            testimonials_repeater:
+                label: Testimonials
+                type: repeater
+                prompt: 'Add a new testimonial'
+                form:
+                    fields:
+                        enable:
+                            label: 'Display this testimonial?'
+                            type: switch
+                            default: 1
+                        avatar:
+                            label: 'Avatar (70x70)'
+                            type: mediafinder
+                            mode: image
+                            span: left
+                        statement:
+                            label: Statement
+                            type: textarea
+                            size: small
+                        author:
+                            label: Author
+                            type: text
+                            comment: 'e.g. Janet Morris'
+                        position:
+                            label: Position
+                            type: text
+                            comment: 'e.g. CEO, Wire Inc.'
+                default: '[{"enable":"1","avatar":"","statement":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in felis et dolor auctor ultrices porta eget sem. Pellentesque volutpat risus ex, ac feugiat purus malesuada in.","author":"Linus Torvalds","position":"Fellow, Linux Foundation"},{"enable":"1","avatar":"","statement":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in felis et dolor auctor ultrices porta eget sem. Pellentesque volutpat risus ex, ac feugiat purus malesuada in.","author":"Steve Jobs","position":"CEO, Apple Inc."},{"enable":"1","avatar":"","statement":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in felis et dolor auctor ultrices porta eget sem. Pellentesque volutpat risus ex, ac feugiat purus malesuada in.","author":"Elon Musk","position":"CEO, SpaceX"}]'
+                tab: Testimonials
+            contact_background:
+                label: 'Background (945x900)'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Contact
+            contact_title:
+                label: Title
+                type: text
+                tab: Contact
+                comment: 'e.g. Get in touch'
+                default: 'Get in touch'
+            contact_lead:
+                label: Lead
+                type: textarea
+                size: small
+                tab: Contact
+                comment: 'e.g. Want to get in touch? We''d love to hear from you.'
+                default: 'Want to get in touch? We''d love to hear from you.'
+            section_essential:
+                label: ESSENTIAL
+                type: section
+                tab: Global
+            site_name:
+                label: 'Site name'
+                default: DroneWorks
+                tab: Global
+                comment: 'The website name as it should appear on the front-end.'
+            global_logo:
+                label: Logo
+                type: fileupload
+                mode: image
+                fileTypes: 'jpg,jpeg,png,svg'
+                tab: Global
+                span: left
+            global_logo_height:
+                label: 'Logo height in pixels'
+                type: number
+                step: 1
+                min: 0
+                tab: Global
+                span: right
+                default: 20
+            section_header:
+                label: HEADER
+                type: section
+                tab: Global
+            global_header_cta_label:
+                label: 'CTA label'
+                type: text
+                comment: 'e.g. Call us | Email  us | Learn more | Download catalog | Contact us'
+                tab: Global
+                default: +1-541-754-3010
+            global_header_cta_icon:
+                label: 'CTA icon (Optional, Font Awesome 5 HTML)'
+                type: text
+                comment: 'e.g. <i class="fas fa-phone"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
+                tab: Global
+                default: '<i class="fas fa-phone"></i>'
+            global_header_cta_url:
+                label: 'CTA URL'
+                type: text
+                comment: 'e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /#contact'
+                tab: Global
+                default: 'tel:+1-541-754-3010'
+            global_header_cta_new_tab:
+                label: 'Open link in new tab?'
+                type: checkbox
+                span: left
+                tab: Global
+                default: false
+            global_header_cta_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                tab: Global
+                default: true
+            section_footer:
+                label: FOOTER
+                type: section
+                tab: Global
+            global_company_statement:
+                label: 'Your mission. Your values'
+                type: textarea
+                comment: 'Tell visitors why you’re in business. State your mission and values (20-25 words)'
+                size: small
+                tab: Global
+                default: 'DroneWorks has a fluid layout that adapts to all modern screens and web browsers. In short, it follows all the latest trends and regulations for your convenience.'
+            global_phone:
+                label: 'Phone (Optional)'
+                type: text
+                comment: 'e.g. +1-541-754-3010'
+                tab: Global
+                span: left
+                default: +1-541-754-3010
+            global_email:
+                label: Email
+                type: text
+                comment: 'e.g. email@example.com'
+                tab: Global
+                span: right
+                default: email@example.com
+            global_im_title:
+                label: 'IM title'
+                type: text
+                tab: Global
+                comment: 'e.g. Message us on'
+                default: 'Message us on'
+            global_im_repeater:
+                label: 'IM channels (Optional)'
+                type: repeater
+                prompt: 'Add a new IM channel'
+                form:
+                    fields:
+                        channel:
+                            label: Channel
+                            options:
+                                Viber: Viber
+                                WhatsApp: WhatsApp
+                                Messenger: Messenger
+                                Skype: Skype
+                                Telegram: Telegram
+                                WeChat: WeChat
+                            showSearch: true
+                            span: left
+                            type: dropdown
+                        parameter:
+                            label: Parameter
+                            span: right
+                            type: text
+                            comment: 'e.g. <viber_phone> | <whatsapp_phone> | <facebook_page_name> | <skype_login> | <telegram_username> | <wechat_id>'
+                default: '[{"channel":"Viber","parameter":"+15417543010"},{"channel":"WhatsApp","parameter":"+15417543010"},{"channel":"Messenger","parameter":"facebookpagename"},{"channel":"Skype","parameter":"skypelogin"},{"channel":"Telegram","parameter":"telegramusername"},{"channel":"WeChat","parameter":"wechatid"}]'
+                tab: Global
+            global_newsletter_title:
+                label: 'Newsletter title'
+                type: text
+                tab: Global
+                comment: 'e.g. Stay in the know'
+                default: 'Stay in the know'
+            global_newsletter_text:
+                label: 'Newsletter text'
+                type: textarea
+                size: small
+                tab: Global
+                comment: 'e.g. Get news and announcements delivered right to your inbox.'
+                default: 'Get news and announcements delivered right to your inbox.'
+            global_social_repeater:
+                label: 'Social channels (Optional)'
+                type: repeater
+                prompt: 'Add a new social channel'
+                form:
+                    fields:
+                        channel:
+                            label: Channel
+                            options:
+                                'fab fa-facebook-f': Facebook
+                                'fab fa-instagram': Instagram
+                                'fab fa-linkedin-in': LinkedIn
+                                'fab fa-twitter': Twitter
+                                'fab fa-youtube': YouTube
+                                'fab fa-vimeo': Vimeo
+                            showSearch: true
+                            span: left
+                            type: dropdown
+                        link:
+                            label: Link
+                            span: right
+                            type: text
+                        label:
+                            label: Label
+                            type: text
+                            comment: 'e.g. Facebook'
+                default: '[{"channel":"fab fa-facebook-f","link":".","label":"Facebook"},{"channel":"fab fa-youtube","link":".","label":"YouTube"},{"channel":"fab fa-twitter","link":".","label":"Twitter"}]'
+                tab: Global
+            section_colours:
+                label: COLOURS
+                type: section
+                tab: Theming
+            theming_primary_color:
+                label: Primary
+                tab: Theming
+                type: colorpicker
+                default: '#05d68b'
+                assetVar: primary-color
+            theming_header_bg_color:
+                label: 'Header background color'
+                tab: Theming
+                type: colorpicker
+                default: '#131b24'
+                assetVar: header-bg-color
+            theming_footer_bg_color:
+                label: 'Footer background color'
+                tab: Theming
+                type: colorpicker
+                default: '#16202a'
+                assetVar: footer-bg-color
+            theming_meta_theme_color:
+                label: 'Value for the theme-color meta tag'
+                tab: Theming
+                type: colorpicker
+                default: '#038657'
+            section_google_fonts:
+                label: 'GOOGLE FONTS'
+                type: section
+                tab: Theming
+            theming_google_fonts_enable:
+                label: 'Use Google Fonts?'
+                type: switch
+                default: 1
+                assetVar: google-fonts-enable
+                tab: Theming
+                comment: 'Enabling this option hinders performance.'
+            theming_google_fonts_link:
+                label: 'Google Fonts <link>'
+                type: codeeditor
+                size: small
+                language: html
+                default: '<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Oswald:wght@500&display=swap" rel="stylesheet">'
+                comment: 'Choose 500 weight for the Heading family. Choose 400 and 500 weights for the Body family.'
+                tab: Theming
+            theming_google_fonts_heading:
+                label: 'Google Fonts heading family'
+                type: text
+                default: '''Oswald'', sans-serif'
+                comment: 'e.g. ''Oswald'', sans-serif'
+                assetVar: google-fonts-heading
+                tab: Theming
+            theming_google_fonts_body:
+                label: 'Google Fonts body family'
+                type: text
+                default: '''Montserrat'', sans-serif'
+                comment: 'e.g. ''Montserrat'', sans-serif'
+                assetVar: google-fonts-body
+                tab: Theming
+            icons_favicon:
+                label: 'Favicon (32x32, ICO)'
+                type: fileupload
+                mode: image
+                fileTypes: ico
+                tab: 'Favicon & App icons'
+            icons_icon_svg:
+                label: 'Icon (1:1, SVG)'
+                type: fileupload
+                mode: image
+                fileTypes: svg
+                tab: 'Favicon & App icons'
+            icons_icon_png:
+                label: 'Icon (512x512, PNG)'
+                type: fileupload
+                mode: image
+                fileTypes: png
+                tab: 'Favicon & App icons'
+            misc_blog_title:
+                label: 'Blog section title (Home)'
+                type: text
+                tab: Misc
+                comment: 'e.g. Recent news & articles'
+                default: 'Recent news & articles'
+            misc_page_cover:
+                label: 'Page cover (1920x400)'
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Misc
+                comment: 'Cover for all pages except Home'
+            misc_analytics_id:
+                label: 'Google Analytics tracking ID'
+                type: text
+                comment: The tracking ID is a string like UA-000000000-2.
+                span: right
+                tab: Misc
+            blog_comment:
+                label: 'Want to manage your Blog?'
+                type: section
+                tab: Notes
+                comment: 'To manage your Blog, click "Blog" on the admin toolbar. The recommended aspect ratio for post featured images is 16:9.'
+            id_comment:
+                label: 'Want to jump to a specific part of the Homepage?'
+                type: section
+                tab: Notes
+                comment: 'The homepage has the following marked sections: #about, #services, #projects, #faqs, #blog, #testimonials and #contact. You can always define a hyperlink to jump to a specific section.'

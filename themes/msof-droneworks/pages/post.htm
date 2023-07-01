@@ -1,0 +1,163 @@
+url = "/blog/post/:slug"
+layout = "default"
+title = "Post"
+meta_description = "Live demo of the DroneWorks theme for October CMS."
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "category"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "category"
+==
+<?php
+use RainLab\Blog\Models\Post;
+
+function onStart()
+{
+    // Get post
+    $post = Post::where('slug', $this->param('slug'))->first();
+    $postPublishedAt = $post->published_at;
+
+    $prevPost = Post::where('published_at', '>', $postPublishedAt)->get()->last();
+    $nextPost = Post::where('published_at', '<', $postPublishedAt)->get()->last();
+
+    $this["prevPost"] = $prevPost;
+    $this["nextPost"] = $nextPost;
+}
+
+function onEnd()
+{
+    // Optional - set the page title to the post title
+    if (isset($this->post)) {
+        $this->page->title = $this->post->title;
+        $this->page->description = $this->post->summary;
+    }
+}
+?>
+==
+{% partial "global/page-cover" title=post.title align="left" %}
+
+<section class="blog_area single-post-area home-section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                {# POST #}
+                <div class="single-post">
+                    <div class="feature-img">
+                        {% set featured_image = post.featured_images.first %}
+                        <img width="768" height="432" class="img-fluid border" src="{{ featured_image ? featured_image.thumb(768,auto) : 'assets/demo/post.jpg'|theme }}" alt="{{ featured_image.description ? featured_image.description : post.title }}">
+                    </div>
+                    <div class="blog_details">
+                        <h2>{{ post.title }}</h2>
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li>
+                                {% if post.user %}By {{ post.user.first_name }} {{ post.user.last_name }} | {% endif %}{{ post.published_at|date('M d, Y') }}
+                            </li>
+                            <li>
+                                <a class="mr-3" href="https://www.facebook.com/sharer/sharer.php?caption={{ post.title|url_encode }}&u={{ ''|page }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mr-3" href="https://twitter.com/intent/tweet?text={{ post.title|url_encode }}&url={{ ''|page }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                                <a class="mr-3" href="https://www.linkedin.com/shareArticle?mini=true&url={{ ''|page }}&title={{ post.title|url_encode }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a class="mr-3" href="mailto:?subject={{post.title|url_encode}}&body={{'Check out this article on '|url_encode}}{{this.theme.site_name|url_encode}}:%0A%0A{{post.title|url_encode}}%0A%0A{{post.summary|url_encode}}%0A%0A{{''|page}}" target="_blank" tabindex="-1" aria-label="Share with Email"><i class="fas fa-envelope"></i></a>
+                                <a class="mr-3" href="https://www.addtoany.com/share_save?linkurl={{ ''|page }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="Other sharing options"><i class="fas fa-share-alt"></i></a>
+                            </li>
+                        </ul>
+                        <p style="font-weight:500;font-size:20px;">{{ post.summary|nl2br }}</p>
+                        <div>
+                            {{ post.content_html|raw }}
+                        </div>
+                    </div>
+                </div>
+                {# NAVIGATION #}
+                <div class="navigation-top">
+                    <ul class="blog-info-link">
+                        {% if post.categories.count %}
+                            <li>
+                                <i class="fas fa-tags"></i>
+                                {% for category in post.categories %}
+                                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %},{% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a class="mr-3" href="https://www.facebook.com/sharer/sharer.php?caption={{ post.title|url_encode }}&u={{ ''|page }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a class="mr-3" href="https://twitter.com/intent/tweet?text={{ post.title|url_encode }}&url={{ ''|page }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                            <a class="mr-3" href="https://www.linkedin.com/shareArticle?mini=true&url={{ ''|page }}&title={{ post.title|url_encode }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a class="mr-3" href="mailto:?subject={{post.title|url_encode}}&body={{'Check out this article on '|url_encode}}{{this.theme.site_name|url_encode}}:%0A%0A{{post.title|url_encode}}%0A%0A{{post.summary|url_encode}}%0A%0A{{''|page}}" target="_blank" tabindex="-1" aria-label="Share with Email"><i class="fas fa-envelope"></i></a>
+                            <a class="mr-3" href="https://www.addtoany.com/share_save?linkurl={{ ''|page }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="Other sharing options"><i class="fas fa-share-alt"></i></a>
+                        </li>
+                    </ul>
+                    <div class="navigation-area">
+                        <div class="row">
+                            <div
+                                class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                                {% if prevPost %}
+                                    <div class="thumb">
+                                        <a href="{{ 'post'|page({ slug: prevPost.slug }) }}">
+                                            {% set prev_featured_image = prevPost.featured_images[0] %}
+                                            <img width="60" height="60" class="img-fluid border" src="{{ prev_featured_image ? prev_featured_image.thumb(60,60,'crop') : 'assets/demo/thumbnail.svg'|theme }}" alt="{{ prev_featured_image.description ? prev_featured_image.description : prevPost.title }}">
+                                        </a>
+                                    </div>
+                                    <div class="detials">
+                                        <p>Prev Post</p>
+                                        <a href="{{ 'post'|page({ slug: prevPost.slug }) }}">
+                                            <h3 class="mb-0" style="color:#333;">{{ prevPost.title }}</h3>
+                                        </a>
+                                    </div>
+                                {% else %}
+                                    <div class="detials">
+                                        <p>Prev Post</p>
+                                        <h3 class="mb-0" style="color:#333;">N/A</h3>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div
+                                class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                                {% if nextPost %}
+                                    <div class="detials">
+                                        <p>Next Post</p>
+                                        <a href="{{ 'post'|page({ slug: nextPost.slug }) }}">
+                                            <h3 class="mb-0" style="color:#333;">{{ nextPost.title }}</h3>
+                                        </a>
+                                    </div>
+                                    <div class="thumb">
+                                        <a href="{{ 'post'|page({ slug: nextPost.slug }) }}">
+                                            {% set next_featured_image = nextPost.featured_images[0] %}
+                                            <img width="60" height="60" class="img-fluid border" src="{{ next_featured_image ? next_featured_image.thumb(60,60,'crop') : 'assets/demo/thumbnail.svg'|theme }}" alt="{{ next_featured_image.description ? next_featured_image.description : nextPost.title }}">
+                                        </a>
+                                    </div>
+                                {% else %}
+                                    <div class="detials">
+                                        <p>Next Post</p>
+                                        <h3 class="mb-0" style="color:#333;">N/A</h3>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if blogCategories.categories|length %}
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget post_category_widget border mb-0">
+                            <h3 class="widget_title">Category</h3>
+                            <ul class="list cat-list">
+                                {% for category in blogCategories.categories %}
+                                    <li>
+                                        <a href="{{ category.url }}" class="d-flex">
+                                            <p style="color:#505050;">{{ category.name }}</p>
+                                            <p style="color:#505050;">({{ category.post_count }})</p>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

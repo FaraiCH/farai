@@ -1,0 +1,20 @@
+{
+    "name": "msof/droneworks-theme",
+    "type": "october-theme",
+    "description": "Single-page drone & UAV business services theme with a blog.",
+    "homepage": "https://octobercms.com/theme/msof-droneworks",
+    "keywords": ["october", "octobercms", "drone"],
+    "license": "CC BY 3.0",
+    "authors": [
+        {
+            "name": "Marios Sofokleous",
+            "email": "marios.sofokleous@yandex.com",
+            "homepage": "https://www.msof.me/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "minimum-stability": "dev"
+}

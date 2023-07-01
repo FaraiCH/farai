@@ -1,0 +1,42 @@
+<section id="blog" class="posts-section home-section-padding fix">
+    <div class="container">
+        {# Section Title #}
+        <div class="section-tittle">
+            <h2 class="text-center">{{ this.theme.misc_blog_title }}</h2>
+        </div>
+        <div class="services-active">
+            {# POSTS #}
+            {% for post in posts %}
+                {% set featured_image = post.featured_images.first %}
+                <article class="blog_item border h-100">
+                    <div class="blog_item_img">
+                        <img style="height:auto;" loading="lazy" width="447" height="251" class="card-img rounded-0" src="{{ featured_image ? featured_image.thumb(447,auto) : 'assets/demo/post.jpg'|theme }}" alt="{{ featured_image.description ? featured_image.description : post.title }}">
+                        <div class="blog_item_date text-center">
+                            <div>{{ post.published_at|date('d') }}</div>
+                            <p>{{ post.published_at|date('M') }}</p>
+                        </div>
+                    </div>
+                    <div class="blog_details">
+                        <a class="d-inline-block" href="{{ post.url }}">
+                            <h3 class="blog-head">{{ post.title }}</h3>
+                        </a>
+                        <p>{{ post.summary|nl2br }}</p>
+                        {% if post.categories.count %}
+                            <ul class="blog-info-link">
+                                <li>
+                                    <i class="fas fa-tags"></i>
+                                    {% for category in post.categories %}
+                                        <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %},{% endif %}
+                                    {% endfor %}
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+        <div style="margin-top:45px;" class="text-center">
+            <a href="{{ 'blog'|page }}" class="btn black-btn">All news</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,80 @@
+<script src="{{ [
+    'assets/js/vendor/modernizr-3.5.0.min.js',
+    'assets/js/vendor/jquery-1.12.4.min.js',
+    '@framework',
+    'assets/js/popper.min.js',
+    'assets/js/bootstrap.min.js',
+    'assets/js/jquery.slicknav.min.js',
+    'assets/js/slick.min.js',
+    'assets/js/jquery.magnific-popup.js',
+    'assets/js/headroom.min.js',
+    'assets/js/cookieconsent.min.js',
+    'assets/js/main.js'
+]|theme }}"></script>
+
+<script>
+    // Add Analytics
+    function addAnalytics() {
+        window['ga-disable-{{ this.theme.misc_analytics_id }}'] = false;
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ this.theme.misc_analytics_id }}', {cookie_flags: 'SameSite=None;Secure'});
+    }
+
+    // Disable Analytics
+    function disableAnalytics() {
+        // Disable google analytics, existing cookies will not be deleted.
+        // Existing cookies will neither be updated nor sent to google.
+        window['ga-disable-{{ this.theme.misc_analytics_id }}'] = true;
+    }
+
+    window.addEventListener("load", function () {
+        // Initialise cookie consent
+        window.cookieconsent.initialise({
+            "cookie": {
+                "secure": true
+            },
+            "palette": {
+                "popup": {
+                    "background": "#000000",
+                    "text": "#fff"
+                },
+                "button": {
+                    "background": "#f1d600",
+                    "text": "#000"
+                }
+            },
+            "theme": "block",
+            "position": "bottom-left",
+            "type": "opt-in",
+            "content": {
+                "message": "We use cookies to ensure you get the best experience on our website.",
+                "dismiss": "Got it!",
+                "allow": "Allow cookies",
+                "link": "Privacy Policy",
+                "href": "privacy-policy"
+            },
+            onInitialise: function (status) {
+                var type = this.options.type;
+                var didConsent = this.hasConsented();
+                if (type == 'opt-in' && didConsent) {
+                    addAnalytics();
+                }
+            },
+            onStatusChange: function(status, chosenBefore) {
+                var type = this.options.type;
+                var didConsent = this.hasConsented();
+                if (type == 'opt-in' && didConsent) {
+                    addAnalytics();
+                }
+            },
+            onRevokeChoice: function() {
+                var type = this.options.type;
+                if (type == 'opt-in') {
+                    disableAnalytics();
+                }
+            }
+        });
+    });
+</script>

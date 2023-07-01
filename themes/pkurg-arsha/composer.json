@@ -1,0 +1,8 @@
+{
+    "name": "pkurg/arsha-theme",
+    "type": "october-theme",
+    "description": "Arsha is a clean and modern business Bootstrap template designed specifically for startup, apps and IT services. You will be able to showcase your content on mobile devices such as smartphones, tablets and all types of devices. Arsha's design is driven by minimalist and unique sections. ",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

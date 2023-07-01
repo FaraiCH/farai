@@ -1,0 +1,56 @@
+url = "/"
+layout = "default"
+title = "Home"
+meta_description = "Live demo of the DroneWorks theme for October CMS."
+
+[emptyForm contactForm]
+group = "Contact Form"
+rules[name] = "required"
+rules[email] = "required|email"
+rules[subject] = "required"
+rules[message] = "required"
+rules[consent] = "required"
+messages_success = "Thanks for getting in touch."
+messages_errors = "There were errors with your submission."
+mail_enabled = 1
+mail_replyto = "{{ form.email }}"
+mail_template = "blakejones.magicforms::mail.notification"
+reset_form = 1
+inline_errors = "disabled"
+js_on_success = "const elementsToHide = document.querySelectorAll('#contactForm .js-hide')
+
+elementsToHide.forEach(function(element) {
+    element.style.visibility = 'hidden';
+});"
+sanitize_data = "htmlspecialchars"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "category"
+postPage = "post"
+==
+{% set posts = blogPosts.posts %}
+
+{% partial 'home/hero' %}
+
+{% partial 'home/about' %}
+
+{% partial 'home/services' %}
+
+{% partial 'home/projects' %}
+
+{% partial 'home/faqs' %}
+
+{% partial 'home/blog' posts=posts %}
+
+{% partial 'home/testimonials' %}
+
+{% partial 'global/contact' %}

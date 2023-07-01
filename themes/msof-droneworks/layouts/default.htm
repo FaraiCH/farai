@@ -1,0 +1,57 @@
+[emptyForm newsletterForm]
+group = "Newsletter Form"
+rules[email] = "required|email"
+messages_success = "Thanks for joining us."
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_replyto = "{{ form.email }}"
+mail_template = ""
+reset_form = 1
+inline_errors = "disabled"
+js_on_success = "const elementsToHide = document.querySelectorAll('#newsletterForm .js-hide')
+
+elementsToHide.forEach(function(element) {
+    element.style.visibility = 'hidden';
+});"
+sanitize_data = "htmlspecialchars"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+==
+<?php
+use Cms\Classes\Theme;
+
+function onEnd() {
+    // Get page file name
+    $this['baseFileName'] = $this->page->baseFileName;
+}
+?>
+==
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    {# HEAD #}
+    {% partial 'global/head' baseFileName=baseFileName %}
+    <body>
+        {# PRELOADER #}
+        {% partial 'global/preloader' %}
+   
+        {# HEADER #}
+        {% partial 'global/header' baseFileName=baseFileName %}
+
+        {# MAIN #}
+        <main>
+            {% page %}
+        </main>
+
+        {# FOOTER #}
+        {% partial 'global/footer' %}
+
+        {# TO TOP #}
+        {% partial 'global/to-top' %}
+
+        {# SCRIPTS #}
+        {% partial 'global/scripts' %}
+    </body>
+</html>

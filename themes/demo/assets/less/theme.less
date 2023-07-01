@@ -1,26 +1,16 @@
+//
+// Boot theme
+//
+
 @import "theme/boot";
+@import "theme/type";
 
-// For first level entry path
-@assets-url: "../../assets";
-
-//
-// Common Styles
-//
-// These are styles that apply everywhere
-//
-
-@import "theme/common";
 
 //
-// Layouts
-//
-// These are layout specific stylesheets
+// Fonts
 //
 
-@import "layouts/default";
-@import "layouts/home";
-@import "layouts/blog";
-@import "layouts/wiki";
+@import "theme/fonts";
 
 //
 // Controls
@@ -36,18 +26,28 @@
 // These are reusable elements used in the site.
 //
 
-@import "elements/text";
-@import "elements/card";
 @import "elements/callouts";
+@import "elements/utilities";
 @import "elements/navbar";
 @import "elements/jumbotron";
-@import "elements/pagination";
 @import "elements/code";
 @import "elements/buttons";
 @import "elements/footer";
-@import "elements/social-links";
-@import "elements/user-panel";
-@import "elements/lists";
-@import "elements/form";
-@import "elements/popover";
-@import "elements/how-its-made";
+
+//
+// Layouts
+//
+// Include these here, or directly on the layouts
+//
+
+@import "layouts/default";
+
+//
+// Pages
+//
+// Include these here, or directly on the pages
+//
+
+@import "pages/ajax";
+@import "pages/home";
+@import "pages/plugins";

@@ -7,13 +7,22 @@ redirect = "/"
 paramCode = "code"
 ==
 <style>
+    .first{
+        background: #090b17;
+    }
     .div1{
         background: url("/themes/pkurg-arsha/assets/img/banner.png");
+        background-repeat: no-repeat;
+
         background-size: 100%;
-        opacity: 0.8;
+        opacity: 0.7;
     }
+
 </style>
-<div class="div1">
-    {% component 'CmpSignin' %}
+<div class="first">
+    <div class="div1">
+        {% component 'CmpSignin' %}
+    </div>
 </div>
+
 

@@ -1,0 +1,111 @@
+{% if formSentAlias == __SELF__.alias and formError is empty and settingsGet('form_hide_after_success', 0) %}
+
+	{# no errors and set to hide after send #}
+
+{% else %}
+
+	{{ form_open(__SELF__.getFormAttributes) }}
+
+		{% for field in __SELF__.fields %}
+
+			{{ __SELF__.getFieldHtmlCode(field)|raw }}
+
+		{% endfor %}
+
+		{{ __SELF__.getAntispamFieldHtmlCode({})|raw }}
+
+		{{ __SELF__.getDescriptionFieldHtmlCode({})|raw }}
+		
+		{{ __SELF__.getRedirectFieldHtmlCode({})|raw }}
+
+		{% if settingsGet('add_google_recaptcha') and settingsGet('google_recaptcha_site_key') %}
+
+			<div class="{{__SELF__.getReCaptchaWrapperClass()}}">
+
+				<div id="g-recaptcha-{{ __SELF__.alias }}"></div>
+
+			</div>
+
+		{% endif %}
+
+		{{ __SELF__.getSubmitButtonHtmlCode({})|raw }}
+
+	{{ form_close() }}
+
+{% endif %}
+
+
+{% if settingsGet('add_google_recaptcha') and settingsGet('google_recaptcha_scripts_allow') %}
+
+	{% put scripts %}
+
+		{% set apiParams = [] %}
+
+		{% if settingsGet("google_recaptcha_locale_allow") and currentLocale %}
+
+			{% set apiParams = apiParams|merge(['hl='~currentLocale]) %}
+
+		{% endif %}
+
+		{% set apiParams = apiParams|merge(['onload=onloadCallback_'~__SELF__.alias]) %}
+		{% set apiParams = apiParams|merge(['render=explicit']) %}
+
+		<script src='https://www.google.com/recaptcha/api.js{{ apiParams|length ? '?' ~ apiParams|join('&') }}' async defer></script>
+
+	{% endput %}
+
+	{% put scripts %}
+
+	<script>
+
+		var onloadCallback_{{ __SELF__.alias }} = function() {
+
+			grecaptcha.render('g-recaptcha-{{ __SELF__.alias }}',
+				{
+					'sitekey' : '{{ settingsGet('google_recaptcha_site_key') }}'
+
+						{% if settingsGet('google_recaptcha_version') == 'v2invisible' %}
+							,
+							'size' : "invisible",
+							'callback' : onSubmit_{{__SELF__.alias}}
+						{% endif %}
+						
+				}
+			);
+
+			{% if settingsGet('google_recaptcha_version') == 'v2invisible' %}
+
+				$('#scf-form-id-{{ __SELF__.alias }} button[type=submit]').click(function (event) {
+
+					event.preventDefault();
+
+					var formRecaptchaObject = document.getElementById('g-recaptcha-{{ __SELF__.alias }}');
+
+					grecaptcha.execute();
+					
+				});
+
+				function onSubmit_{{ __SELF__.alias }}(token) {
+
+					$('form[id^="scf-form-id"]').each(function(){
+
+						{% if settingsGet('form_allow_ajax', null) %}
+							$(this).request();
+						{% else %}
+							$(this).submit();
+						{% endif %}
+					});
+
+				}
+
+			{% endif %}
+			
+		};
+
+
+	</script>
+
+	{% endput %}
+
+{% endif %}
+

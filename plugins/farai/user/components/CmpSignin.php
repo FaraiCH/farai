@@ -11,6 +11,7 @@ use Lang;
 use Validator;
 use ValidationException;
 use Event;
+use Redirect;
 /**
  * CmpSignin Component
  *

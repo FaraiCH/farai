@@ -5,6 +5,13 @@ use Cms\Classes\Page;
 use October\Rain\Auth\AuthException;
 use RainLab\User\Models\Settings as UserSettings;
 use RainLab\User\Models\User as UserModel;
+use Request;
+use Auth;
+use Lang;
+use Validator;
+use ValidationException;
+use Event;
+use Redirect;
 
 /**
  * CmpRegister Component

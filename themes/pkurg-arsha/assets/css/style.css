@@ -641,14 +641,14 @@ section {
   border-radius: 4px;
   transition: 0.3s;
   line-height: 1;
-  color: #47b2e4;
+  color: #353e50;
   animation-delay: 0.8s;
   margin-top: 6px;
-  border: 2px solid #47b2e4;
+  border: 2px solid #353e50;
 }
 
 .about .content .btn-learn-more:hover {
-  background: #47b2e4;
+  background: #353e50;
   color: #fff;
   text-decoration: none;
 }
@@ -1575,7 +1575,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit] {
-  background: #47b2e4;
+  background: #353e50;
   border: 0;
   padding: 12px 34px;
   color: #fff;
@@ -1644,7 +1644,7 @@ section {
 --------------------------------------------------------------*/
 #footer {
   font-size: 14px;
-  background: #37517e;
+  background: #353e50;
 }
 
 #footer .footer-newsletter {
@@ -1689,7 +1689,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #47b2e4;
+  background: #353e50;
   color: #fff;
   transition: 0.3s;
   border-radius: 50px;
@@ -1747,7 +1747,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #47b2e4;
+  color: #353e50;
   font-size: 18px;
   line-height: 1;
 }
@@ -1777,7 +1777,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #47b2e4;
+  background: #353e50;
   color: #fff;
   line-height: 1;
   padding: 8px 0;

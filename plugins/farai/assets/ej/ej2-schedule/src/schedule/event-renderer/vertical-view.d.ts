@@ -1,0 +1,63 @@
+import { EventFieldsMapping, TdData } from '../base/interface';
+import { Schedule } from '../base/schedule';
+import { EventBase } from './event-base';
+/**
+ * Vertical view appointment rendering
+ */
+export declare class VerticalEvent extends EventBase {
+    dateRender: Date[][];
+    private renderedEvents;
+    private renderedAllDayEvents;
+    private overlapEvents;
+    private moreEvents;
+    private overlapList;
+    private allDayEvents;
+    private slotCount;
+    private interval;
+    allDayLevel: number;
+    private startHour;
+    private endHour;
+    private element;
+    allDayElement: Element[];
+    private animation;
+    fields: EventFieldsMapping;
+    cellHeight: number;
+    resources: TdData[];
+    /**
+     * Constructor for vertical view
+     */
+    constructor(parent: Schedule);
+    renderAppointments(): void;
+    initializeValues(): void;
+    getHeight(start: Date, end: Date): number;
+    private appendEvent;
+    private processBlockEvents;
+    private renderBlockEvents;
+    private renderEvents;
+    private setValues;
+    private getResourceList;
+    private createAppointmentElement;
+    private createMoreIndicator;
+    private renderSpannedIcon;
+    isSpannedEvent(record: {
+        [key: string]: Object;
+    }, day: number, resource: number): {
+        [key: string]: Object;
+    };
+    renderAllDayEvents(eventObj: {
+        [key: string]: Object;
+    }, dayIndex: number, resource: number, dayCount: number, inline?: boolean): void;
+    renderNormalEvents(eventObj: {
+        [key: string]: Object;
+    }, dayIndex: number, resource: number, dayCount: number, inline?: boolean): void;
+    private getEventWidth;
+    private getEventLeft;
+    getTopValue(date: Date, day: number, resource: number): number;
+    private getOverlapIndex;
+    private adjustOverlapElements;
+    private setAllDayRowHeight;
+    private addOrRemoveClass;
+    private getEventHeight;
+    private rowExpandCollapse;
+    private animationUiUpdate;
+}

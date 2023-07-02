@@ -1,0 +1,54 @@
+{
+  "name": "@syncfusion/ej2-pdfviewer",
+  "version": "18.4.30",
+  "description": "Essential JS 2 PDF viewer Component",
+  "author": "Syncfusion Inc.",
+  "license": "SEE LICENSE IN license",
+  "main": "./dist/ej2-pdfviewer.umd.min.js",
+  "module": "./index.js",
+  "es2015": "./dist/es6/ej2-pdfviewer.es2015.js",
+  "dependencies": {
+    "@syncfusion/ej2-base": "^18.4.30",
+    "@syncfusion/ej2-buttons": "^18.4.30",
+    "@syncfusion/ej2-data": "^18.4.30",
+    "@syncfusion/ej2-dropdowns": "^18.4.30",
+    "@syncfusion/ej2-inputs": "^18.4.30",
+    "@syncfusion/ej2-lists": "^18.4.30",
+    "@syncfusion/ej2-navigations": "^18.4.30",
+    "@syncfusion/ej2-notifications": "^18.4.30",
+    "@syncfusion/ej2-popups": "^18.4.30",
+    "@syncfusion/ej2-drawings": "^18.4.30",
+    "@syncfusion/ej2-inplace-editor": "^18.4.30",
+    "@syncfusion/ej2-calendars": "^18.4.30",
+    "@syncfusion/ej2-richtexteditor": "^18.4.30",
+    "@syncfusion/ej2-filemanager": "^18.4.30",
+    "@syncfusion/ej2-layouts": "^18.4.30",
+    "@syncfusion/ej2-grids": "^18.4.30",
+    "@syncfusion/ej2-excel-export": "^18.4.30",
+    "@syncfusion/ej2-pdf-export": "^18.4.30",
+    "@syncfusion/ej2-compression": "^18.4.30",
+    "@syncfusion/ej2-file-utils": "^18.4.30"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.28",
+    "@types/jasmine": "2.8.9",
+    "@types/es6-promise": "0.0.28",
+    "@types/jasmine-ajax": "^3.1.27",
+    "@types/requirejs": "^2.1.26"
+  },
+  "keywords": [
+    "ej2",
+    "syncfusion",
+    "ej2-pdfviewer",
+    "web-components",
+    "JavaScript",
+    "TypeScript",
+    "viewer",
+    "annotation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syncfusion/ej2-pdfviewer.git"
+  },
+  "typings": "index.d.ts"
+}

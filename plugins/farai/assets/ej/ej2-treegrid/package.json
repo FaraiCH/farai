@@ -1,0 +1,32 @@
+{
+  "name": "@syncfusion/ej2-treegrid",
+  "version": "18.4.30",
+  "description": "Essential JS 2 TreeGrid Component",
+  "author": "Syncfusion Inc.",
+  "license": "SEE LICENSE IN license",
+  "main": "./dist/ej2-treegrid.umd.min.js",
+  "module": "./index.js",
+  "es2015": "./dist/es6/ej2-treegrid.es2015.js",
+  "dependencies": {
+    "@syncfusion/ej2-base": "^18.4.30",
+    "@syncfusion/ej2-data": "^18.4.30",
+    "@syncfusion/ej2-popups": "^18.4.30",
+    "@syncfusion/ej2-grids": "^18.4.30"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.28",
+    "@types/jasmine": "2.8.9",
+    "@types/jasmine-ajax": "^3.1.27",
+    "@types/requirejs": "^2.1.26"
+  },
+  "keywords": [
+    "ej2",
+    "syncfusion",
+    "ej2-treegrid"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syncfusion/ej2-treegrid.git"
+  },
+  "typings": "index.d.ts"
+}

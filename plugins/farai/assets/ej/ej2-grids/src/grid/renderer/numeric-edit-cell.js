@@ -1,0 +1,56 @@
+import { extend, Internationalization } from '@syncfusion/ej2-base';
+import { NumericTextBox } from '@syncfusion/ej2-inputs';
+import { isEditable, getComplexFieldID, getObject } from '../base/util';
+/**
+ * `NumericEditCell` is used to handle numeric cell type editing.
+ * @hidden
+ */
+var NumericEditCell = /** @class */ (function () {
+    function NumericEditCell(parent) {
+        this.parent = parent;
+    }
+    NumericEditCell.prototype.keyEventHandler = function (args) {
+        if (args.keyCode === 13 || args.keyCode === 9) {
+            var evt = document.createEvent('HTMLEvents');
+            evt.initEvent('change', false, true);
+            /* tslint:disable-next-line:no-any */
+            this.dispatchEvent(evt);
+        }
+    };
+    NumericEditCell.prototype.create = function (args) {
+        var complexFieldName = getComplexFieldID(args.column.field);
+        this.instances = new Internationalization(this.parent.locale);
+        return this.parent.createElement('input', {
+            className: 'e-field', attrs: {
+                id: this.parent.element.id + complexFieldName,
+                name: complexFieldName, 'e-mappinguid': args.column.uid
+            }
+        });
+    };
+    NumericEditCell.prototype.read = function (element) {
+        return this.obj.value;
+    };
+    NumericEditCell.prototype.write = function (args) {
+        var col = args.column;
+        var isInline = this.parent.editSettings.mode !== 'Dialog';
+        this.obj = new NumericTextBox(extend({
+            value: parseFloat(getObject(args.column.field, args.rowData)),
+            enableRtl: this.parent.enableRtl,
+            placeholder: isInline ? '' : args.column.headerText,
+            enabled: isEditable(args.column, args.requestType, args.element),
+            floatLabelType: this.parent.editSettings.mode !== 'Dialog' ? 'Never' : 'Always',
+            locale: this.parent.locale,
+        }, col.edit.params));
+        args.element.setAttribute('name', getComplexFieldID(args.column.field));
+        this.obj.appendTo(args.element);
+        this.obj.element.addEventListener('keydown', this.keyEventHandler);
+    };
+    NumericEditCell.prototype.destroy = function () {
+        if (this.obj && !this.obj.isDestroyed) {
+            this.obj.element.removeEventListener('keydown', this.keyEventHandler);
+            this.obj.destroy();
+        }
+    };
+    return NumericEditCell;
+}());
+export { NumericEditCell };

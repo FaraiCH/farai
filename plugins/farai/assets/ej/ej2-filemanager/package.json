@@ -1,0 +1,40 @@
+{
+  "name": "@syncfusion/ej2-filemanager",
+  "version": "18.4.30",
+  "description": "Essential JS 2 FileManager Component",
+  "author": "Syncfusion Inc.",
+  "license": "SEE LICENSE IN license",
+  "main": "./dist/ej2-filemanager.umd.min.js",
+  "module": "./index.js",
+  "es2015": "./dist/es6/ej2-filemanager.es2015.js",
+  "dependencies": {
+    "@syncfusion/ej2-base": "^18.4.30",
+    "@syncfusion/ej2-grids": "^18.4.30",
+    "@syncfusion/ej2-layouts": "^18.4.30",
+    "@syncfusion/ej2-popups": "^18.4.30",
+    "@syncfusion/ej2-data": "^18.4.30",
+    "@syncfusion/ej2-inputs": "^18.4.30",
+    "@syncfusion/ej2-lists": "^18.4.30",
+    "@syncfusion/ej2-buttons": "^18.4.30",
+    "@syncfusion/ej2-splitbuttons": "^18.4.30",
+    "@syncfusion/ej2-navigations": "^18.4.30",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.28",
+    "@types/jasmine": "2.8.9",
+    "@types/jasmine-ajax": "^3.1.27",
+    "@types/requirejs": "^2.1.26",
+    "protractor": "5.3.2"
+  },
+  "keywords": [
+    "ej2",
+    "syncfusion",
+    "ej2-filemanager"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syncfusion/ej2-javascript-ui-controls.git"
+  },
+  "typings": "index.d.ts"
+}

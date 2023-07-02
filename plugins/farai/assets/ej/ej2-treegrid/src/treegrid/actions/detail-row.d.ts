@@ -1,0 +1,34 @@
+import { TreeGrid } from '../base';
+/**
+ * TreeGrid Detail Row module
+ * @hidden
+ */
+export declare class DetailRow {
+    private parent;
+    constructor(parent: TreeGrid);
+    /**
+     * @hidden
+     */
+    /**
+     * For internal use only - Get the module name.
+     * @private
+     */
+    protected getModuleName(): string;
+    addEventListener(): void;
+    /**
+     * @hidden
+     */
+    removeEventListener(): void;
+    private setIndentVisibility;
+    private dataBoundArg;
+    private childRowExpand;
+    private rowExpandCollapse;
+    private detaildataBound;
+    private actioncomplete;
+    /**
+     * Destroys the DetailModule.
+     * @method destroy
+     * @return {void}
+     */
+    destroy(): void;
+}

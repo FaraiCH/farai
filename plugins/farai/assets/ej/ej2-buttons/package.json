@@ -1,0 +1,50 @@
+{
+  "name": "@syncfusion/ej2-buttons",
+  "version": "18.4.30",
+  "description": "A package of feature-rich Essential JS 2 components such as Button, CheckBox, RadioButton and Switch.",
+  "author": "Syncfusion Inc.",
+  "license": "SEE LICENSE IN license",
+  "main": "./dist/ej2-buttons.umd.min.js",
+  "module": "./index.js",
+  "es2015": "./dist/es6/ej2-buttons.es2015.js",
+  "dependencies": {
+    "@syncfusion/ej2-base": "^18.4.30"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.28",
+    "@types/jasmine": "2.8.9",
+    "@types/jasmine-ajax": "^3.1.27",
+    "@types/requirejs": "^2.1.26"
+  },
+  "keywords": [
+    "ej2",
+    "syncfusion",
+    "JavaScript",
+    "TypeScript",
+    "ej2-buttons",
+    "button",
+    "ej2 button",
+    "checkbox",
+    "ej2 checkbox",
+    "checkboxes",
+    "radio button",
+    "radiobutton",
+    "radiobuttons",
+    "ej2 radiobutton",
+    "switch",
+    "ej2 switch",
+    "primary button",
+    "flat button",
+    "round button",
+    "icon button",
+    "togglebutton",
+    "toggle button",
+    "form control",
+    "form controls",
+    "input"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syncfusion/ej2-javascript-ui-controls.git"
+  }
+}

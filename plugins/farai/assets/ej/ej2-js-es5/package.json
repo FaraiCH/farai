@@ -1,0 +1,32 @@
+{
+	"name": "@syncfusion/ej2-js-es5",
+	"version": "18.4.30",
+	"description": "A modern JavaScript UI toolkit that has been built from the ground up to be lightweight, responsive, modular and touch friendly. It is written in TypeScript and has no external dependencies.",
+	"author": "Syncfusion Inc.",
+	"license": "SEE LICENSE IN license",
+	"dependencies": {},
+	"devDependencies": {
+		"@syncfusion/ej2-build": "./packages/ej2-build.tgz",
+		"rollup": "^0.51.3",
+		"rollup-plugin-commonjs": "^8.2.6",
+		"rollup-plugin-node-resolve": "^3.0.0",
+		"rollup-plugin-sourcemaps": "^0.4.2",
+		"rollup-plugin-typescript": "^0.8.1",
+		"rollup-plugin-uglify": "^2.0.1"
+	},
+	"keywords": [
+		"ej2",
+		"syncfusion",
+		"web-components",
+		"typescript",
+		"ej2-all"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/syncfusion/ej2-javascript-ui-controls"
+	},
+	"scripts": {
+		"build": "gulp npmignore && gulp build",
+		"ci-publish": "gulp ej2-publish && gulp ej2-publish-styles"
+	}
+}

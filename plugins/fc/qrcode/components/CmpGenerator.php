@@ -1,5 +1,6 @@
 <?php namespace Fc\Qrcode\Components;
 
+use Auth;
 use Cms\Classes\ComponentBase;
 
 /**
@@ -30,9 +31,9 @@ class CmpGenerator extends ComponentBase
     public function onQRCode(){
         $qrvalue = \Input::get('qrvalue');
         $qrcolor = \Input::get('qrcolor');
-
+        $user = Auth::getUser();
         return [
-            '#qrcode_holder' => $this->renderPartial('@qrccode_holder.htm',['qrvalue' => $qrvalue, 'qrcolor' => $qrcolor])
+            '#qrcode_holder' => $this->renderPartial('@qrccode_holder.htm',['qrvalue' => $qrvalue, 'qrcolor' => $qrcolor, 'user' => $user])
         ];
     }
 }

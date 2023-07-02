@@ -1,6 +1,11 @@
 {% if qrvalue is not empty %}
+<div style="display: flex; justify-content: center; align-items: center;">
+    <div id="element_1"></div>
+</div>
 
-<div id="element_1"></div>
+<div style="text-align: center; padding-bottom: 100px" >
+    <button style="max-width: 200px;" id="qrcode_download" class="btn btn-primary">Downlad QR Code</button>
+</div>
 <script src="/plugins/farai/common/assets/ej/ej2/dist/ej2.min.js" type="text/javascript"></script>
 <script>
     var barcode_1 = new ej.barcodegenerator.QRCodeGenerator({
@@ -14,7 +19,15 @@
     });
     barcode_1.appendTo('#element_1');
     let filename= 'Export';
-    barcode_1.exportImage(filename,'JPG');
+    var btn = document.getElementById('qrcode_download');
+    btn.addEventListener('click', function (){
+        {% if user is not empty %}
+            barcode_1.exportImage(filename,'JPG');
+        {% else %}
+            alert('You need to be signed in to download the image');
+        {% endif %}
+    })
+
 </script>
 
 {% else %}

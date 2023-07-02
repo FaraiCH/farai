@@ -22,7 +22,7 @@
     var btn = document.getElementById('qrcode_download');
     btn.addEventListener('click', function (){
         {% if user is not empty %}
-            barcode_1.exportImage(filename,'JPG');
+            barcode_1.exportImage(filename,'PNG');
         {% else %}
             alert('You need to be signed in to download the image');
         {% endif %}

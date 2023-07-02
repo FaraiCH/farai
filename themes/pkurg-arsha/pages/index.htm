@@ -2,8 +2,7 @@ title = "index"
 layout = "default"
 url = "/"
 [session]
-security = "user"
-redirect = "account/signin"
+
 [CmpSignin]
 ==
   <!-- ======= Header ======= -->
@@ -36,6 +35,7 @@ redirect = "account/signin"
                         <li><a class="drop_nav" href="/account/register">Welcome!</a></li>
                         <li><a class="drop_nav" href="/account/register">Dashboard (Coming Soon)</a></li>
                         <li><a class="drop_nav" href="/account/signin">Support</a></li>
+                        <li><a data-request="onLogout" href="/">Log out</a></li>
                     </ul>
                 </li>
 

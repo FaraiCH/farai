@@ -1,6 +1,7 @@
 {% if qrvalue is not empty %}
 
 <div id="element_1"></div>
+<script src="/plugins/farai/common/assets/ej/ej2/dist/ej2.min.js"></script>
 <script>
     var barcode_1 = new ej.barcodegenerator.QRCodeGenerator({
         width: '400px',
@@ -12,6 +13,8 @@
         foreColor:'{{qrcolor}}',
     });
     barcode_1.appendTo('#element_1');
+    let filename= 'Export';
+    barcode_1.exportImage(filename,'JPG');
 </script>
 
 {% else %}

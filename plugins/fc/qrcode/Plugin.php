@@ -44,10 +44,9 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
 
         return [
-            'Fc\Qrcode\Components\MyComponent' => 'myComponent',
+            'Fc\Qrcode\Components\CmpGenerator' => 'CmpGenerator',
         ];
     }
 

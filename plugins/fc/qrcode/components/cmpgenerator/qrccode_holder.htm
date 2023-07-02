@@ -1,0 +1,16 @@
+<div id="element_1"></div>
+<script>
+    var barcode_1 = new ej.barcodegenerator.QRCodeGenerator({
+        width: '400px',
+        height: '400px',
+        displayText: { visibility: false },
+        mode: 'SVG',
+        name: "main",
+        value: "{{qrvalue}}",
+        foreColor:'{{qrcolor}}',
+    });
+    barcode_1.appendTo('#element_1');
+</script>
+
+
+

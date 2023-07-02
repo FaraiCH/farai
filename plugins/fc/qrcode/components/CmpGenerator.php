@@ -31,6 +31,7 @@ class CmpGenerator extends ComponentBase
     public function onQRCode(){
         $qrvalue = \Input::get('qrvalue');
         $qrcolor = \Input::get('qrcolor');
+
         return [
             '#qrcode_holder' => $this->renderPartial('@qrccode_holder.htm',['qrvalue' => $qrvalue, 'qrcolor' => $qrcolor])
         ];

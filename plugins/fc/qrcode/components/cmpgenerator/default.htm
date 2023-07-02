@@ -1,12 +1,12 @@
 
 <style>
-    .con{
-        margin-top: 10%;
-    }
+
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 50%;
+        padding: 10px;
     }
 
     h1 {
@@ -55,20 +55,21 @@
         gap: 3rem;
     }
 </style>
-<div class="con">
-    <div class="container">
+<a href="/" class="btn btn-dark">Home</a>
+    <div class="container" style="border: 1px dashed black; border-radius: 5px;">
         <form>
             <div class="form-group">
                 <input
+                    required
                     name="qrvalue"
                     type="text"
-                    class="form-control input-max"
+                    class="form-control"
                     id="qrvalue"
                     placeholder="Enter the QR Code value" />
             </div>
             <br>
             <p style="text-align: center">Pick The QR Code Color</p>
-            <div class="radio-btns">
+            <div>
                 <input style="background: red"
                     name="qrcolor"
                     type="radio"
@@ -109,7 +110,7 @@
 
             <br>
             <div style="text-align: center;">
-                <button class="btn btn-primary" style="max-width: 30%" data-request="onQRCode"> Show QR Code</button>
+                <button class="btn btn-primary" data-request="onQRCode">Show QR Code</button>
             </div>
 
             {% put scripts %}
@@ -118,7 +119,7 @@
         </form>
 
     </div>
-</div>
+
 
 
 

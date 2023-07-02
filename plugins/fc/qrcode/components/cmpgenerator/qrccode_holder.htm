@@ -1,3 +1,5 @@
+{% if qrvalue is not empty %}
+
 <div id="element_1"></div>
 <script>
     var barcode_1 = new ej.barcodegenerator.QRCodeGenerator({
@@ -12,5 +14,9 @@
     barcode_1.appendTo('#element_1');
 </script>
 
+{% else %}
+
+<div class="alert alert-danger"><p><b>You have not put in a value!</b></p></div>
+{% endif %}
 
 

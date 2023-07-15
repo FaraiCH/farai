@@ -23,6 +23,7 @@ class CmpGenerator extends ComponentBase
     public function loadAssets(){
         $this->addCss('/plugins/farai/common/assets/ej/ej2/bootstrap4.css', '1.0.0');
         $this->addJs('/plugins/farai/common/assets/ej/ej2/dist/ej2.min.js', '1.0.0');
+
     }
     public function onRun()
     {

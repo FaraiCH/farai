@@ -55,6 +55,7 @@
         gap: 3rem;
     }
 </style>
+
 <a href="/" class="btn btn-dark">Home</a>
     <div class="container" style="border: 1px dashed black; border-radius: 5px;">
         <form>
@@ -69,57 +70,12 @@
             </div>
             <br>
             <p style="text-align: center">Pick The QR Code Color</p>
-            <div>
-                <input style="background: red"
-                   data-track-input
-                   data-request="onQRCode"
-                    name="qrcolor"
-                    type="radio"
-                    id="qrcolor_1"
-                    value="red" />
-                <label style=" color: white; background: red; border-radius: 4px;" for="qrcolor_1">Red</label><br>
-                <input
-                    data-track-input
-                    data-request="onQRCode"
-                    name="qrcolor"
-                    type="radio"
-                    id="qrcolor_2"
-                    value="blue" />
-                <label style=" color: white; background: blue; border-radius: 4px;" for="qrcolor_2">Blue</label><br>
-                <input
-                    data-track-input
-                    data-request="onQRCode"
-                    name="qrcolor"
-                    type="radio"
-                    id="qrcolor_3"
-                    value="pink" />
-                <label style=" background: pink; border-radius: 4px;" for="qrcolor_3">Pink</label><br>
-                <input
-                    data-track-input
-                    data-request="onQRCode"
-                    name="qrcolor"
-                    type="radio"
-                    id="qrcolor_4"
-                    value="yellow" />
-                <label style=" background: yellow; border-radius: 4px;" for="qrcolor_4">Yellow</label><br>
-                <input
-                    data-track-input
-                    data-request="onQRCode"
-                    name="qrcolor"
-                    type="radio"
-                    id="qrcolor_5"
-                    value="whitesmoke" />
-                <label style="color:black; background: white; border-radius: 4px;" for="qrcolor_5">White</label><br>
-                <input
-                    data-track-input
-                    data-request="onQRCode"
-                    name="qrcolor"
-                    type="radio"
-                    id="qrcolor_6"
-                    value="black" />
-                <label style="color:white; background: black; border-radius: 4px;" for="qrcolor_5">Black</label><br>
+            <div class="form-group">
+                <div style="text-align: center;">
+                    <!--element which is going to render the ColorPicker-->
+                    <input type="color" id="color_name" name="color_name" />
+                </div>
             </div>
-
             <br>
             <div style="text-align: center;">
                 <button class="btn btn-primary" data-request="onQRCode">Show QR Code</button>
@@ -131,8 +87,6 @@
         </form>
 
     </div>
-
-
 
 
 

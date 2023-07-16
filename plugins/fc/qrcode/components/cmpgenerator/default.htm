@@ -1,8 +1,8 @@
-<link href="https://cdn.syncfusion.com/ej2/22.1.34/ej2-base/styles/material.css" rel="stylesheet">
-<link href="https://cdn.syncfusion.com/ej2/22.1.34/ej2-buttons/styles/material.css" rel="stylesheet">
-<link href="https://cdn.syncfusion.com/ej2/22.1.34/ej2-popups/styles/material.css" rel="stylesheet">
-<link href="https://cdn.syncfusion.com/ej2/22.1.34/ej2-splitbuttons/styles/material.css" rel="stylesheet">
-<link href="https://cdn.syncfusion.com/ej2/22.1.34/ej2-inputs/styles/material.css" rel="stylesheet">
+<link href="/plugins/farai/common/assets/ej/ej2-base/styles/material.css" rel="stylesheet">
+<link href="/plugins/farai/common/assets/ej/ej2-buttons/styles/material.css" rel="stylesheet">
+<link href="/plugins/farai/common/assets/ej/ej2-popups/styles/material.css" rel="stylesheet">
+<link href="/plugins/farai/common/assets/ej/ej2-splitbuttons/styles/material.css" rel="stylesheet">
+<link href="/plugins/farai/common/assets/ej/ej2-inputs/styles/material.css" rel="stylesheet">
 
 <style>
     .container {
@@ -11,6 +11,17 @@
         align-items: center;
         width: 50%;
         padding: 10px;
+    }
+    /* DropDownButton preview customization */
+    #dropdownbtn .e-btn-icon.e-dropdownbtn-preview {
+        background-color: #008000;
+        height: 18px;
+        width: 18px;
+        margin-top: 0;
+    }
+
+    #dropdownbtn {
+        padding: 4px;
     }
 </style>
 
@@ -32,13 +43,10 @@
                 <div style="text-align: center;">
                     <!--element which is going to render the ColorPicker-->
                     <input type="color" id="color_name" name="color_name" data-track-input />
+                    <button id="dropdownbtn"></button>
                 </div>
             </div>
             <br>
-            <div style="text-align: center;">
-                <button class="btn btn-primary" data-request="onQRCode">Show QR Code</button>
-            </div>
-
             {% put scripts %}
                 <div id="qrcode_holder"></div>
             {% endput %}
@@ -48,8 +56,38 @@
 
 {% put scripts %}
     <script>
-        // initialize ColorPicker control
-        var colorPicker = new ej.inputs.ColorPicker({}, "#color_name");
+        ej.base.enableRipple = true;
+
+        var colorPicker = new ej.inputs.ColorPicker(
+            {
+                inline: true,
+                change: function (args) {
+                    var qrvalue = document.getElementById('qrvalue');
+                    ddb.element.children[0].style.backgroundColor = args.currentValue.hex;
+                    $.request('onQRCode', {
+                        data: {val: args.currentValue.hex, color: qrvalue.value},
+                    });
+                    closePopup();
+                }
+            },
+            '#color_name');
+
+        var ddb = new ej.splitbuttons.DropDownButton(
+            {
+                target: ".e-colorpicker-wrapper",
+                iconCss: "e-dropdownbtn-preview",
+                beforeClose: function (args) {
+                    args.element.parentElement.querySelector('.e-cancel').removeEventListener('click', closePopup);
+                },
+                open: function (args) {
+                    args.element.parentElement.querySelector('.e-cancel').addEventListener('click', closePopup);
+                }
+            },
+            "#dropdownbtn");
+
+        function closePopup() {
+            ddb.toggle();
+        }
     </script>
 {% endput %}
 

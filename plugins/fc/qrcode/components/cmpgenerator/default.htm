@@ -6,10 +6,8 @@
 
 <style>
     .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
+        text-align: center;
+        width: 40%;
         padding: 10px;
     }
     /* DropDownButton preview customization */
@@ -26,6 +24,22 @@
 </style>
 
 <a href="/" class="btn btn-dark">Home</a>
+{% if userDetails is empty %}
+
+<li class="second-get dropdown float-end"><a>Account<i class="bi bi-chevron-down"></i></a>
+    <ul>
+        <li><a class="drop_nav" href="/account/register">Register</a></li>
+        <li><a class="drop_nav" href="/account/signin">Sign In</a></li>
+    </ul>
+</li>
+{% else %}
+<li class="second-get dropdown float-end"><a>{{userDetails.name}}<i class="bi bi-chevron-down"></i></a>
+    <ul>
+        <li><a data-request="onLogout" href="/">Log out</a></li>
+    </ul>
+</li>
+
+{% endif %}
     <div class="container" style="border: 1px dashed black; border-radius: 5px;">
         <form>
             <div class="form-group">

@@ -28,6 +28,8 @@ class CmpGenerator extends ComponentBase
     public function onRun()
     {
         $this->loadAssets();
+        $user = Auth::getUser();
+        $this->page['userDetails'] = $user;
     }
 
     public function onQRCode(){

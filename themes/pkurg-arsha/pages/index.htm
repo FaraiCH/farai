@@ -27,13 +27,15 @@ url = "/"
                     <ul>
                         <li><a class="drop_nav" href="/account/register">Register</a></li>
                         <li><a class="drop_nav" href="/account/signin">Sign In</a></li>
+                        <li><a class="drop_nav" href="/qrcode/generator">QR Code Generator</a></li>
                     </ul>
                 </li>
             {% else %}
                 <li class="second-get dropdown"><a>{{CmpSignin.user().name}}<i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a class="drop_nav" href="/account/register">Welcome!</a></li>
-                        <li><a class="drop_nav" href="/account/register">Dashboard (Coming Soon)</a></li>
+                        <li><a class="drop_nav" href="#">Welcome!</a></li>
+                        <li><a class="drop_nav" href="#">Dashboard (Coming Soon)</a></li>
+                        <li><a class="drop_nav" href="/qrcode/generator">QR Code Generator</a></li>
                         <li><a class="drop_nav" href="/account/signin">Support</a></li>
                         <li><a data-request="onLogout" href="/">Log out</a></li>
                     </ul>

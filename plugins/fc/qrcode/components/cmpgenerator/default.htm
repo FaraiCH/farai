@@ -22,24 +22,31 @@
         padding: 4px;
     }
 </style>
+<div class="container d-flex align-items-center" style="background: #37517e;">
+    <nav id="navbar" class="navbar" >
+        <ul>
+            <a href="/">Home</a>
+            {% if userDetails is empty %}
 
-<a href="/" class="btn btn-dark">Home</a>
-{% if userDetails is empty %}
+            <li class="second-get dropdown"><a>Account<i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li><a class="drop_nav" href="/account/register">Register</a></li>
+                    <li><a class="drop_nav" href="/account/signin">Sign In</a></li>
+                </ul>
+            </li>
+            {% else %}
+            <li class="second-get dropdown"><a>{{userDetails.name}}<i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li><a data-request="onLogout" href="/">Log out</a></li>
+                </ul>
+            </li>
 
-<li class="second-get dropdown float-end"><a>Account<i class="bi bi-chevron-down"></i></a>
-    <ul>
-        <li><a class="drop_nav" href="/account/register">Register</a></li>
-        <li><a class="drop_nav" href="/account/signin">Sign In</a></li>
-    </ul>
-</li>
-{% else %}
-<li class="second-get dropdown float-end"><a>{{userDetails.name}}<i class="bi bi-chevron-down"></i></a>
-    <ul>
-        <li><a data-request="onLogout" href="/">Log out</a></li>
-    </ul>
-</li>
+            {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+</div>
 
-{% endif %}
     <div class="container" style="border: 1px dashed black; border-radius: 5px;">
         <form>
             <div class="form-group">

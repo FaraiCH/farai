@@ -1,0 +1,22 @@
+
+<link href="/plugins/farai/common/assets/ej/ej2/bootstrap4.css" rel="stylesheet">
+
+<div id="element_1"></div>
+<div id="result"></div>
+<script type="text/javascript" src="/plugins/farai/common/assets/ej/ej2/dist/ej2.min.js"></script>
+
+<script>
+
+    var barcode_1 = new ej.barcodegenerator.QRCodeGenerator({
+        width: '400px',
+        height: '400px',
+        displayText: { visibility: false },
+        mode: 'SVG',
+        name: "main",
+        value: "4878949845",
+        foreColor:'#37517e',
+    });
+    barcode_1.appendTo('#element_1');
+</script>
+
+

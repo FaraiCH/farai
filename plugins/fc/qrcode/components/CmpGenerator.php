@@ -20,7 +20,8 @@ class CmpGenerator extends ComponentBase
     {
         return [];
     }
-    public function loadAssets(){
+    public function loadAssets()
+    {
         $this->addCss('/plugins/farai/common/assets/ej/ej2/bootstrap4.css', '1.0.0');
         $this->addJs('/plugins/farai/common/assets/ej/ej2/dist/ej2.min.js', '1.0.0');
 
@@ -32,12 +33,13 @@ class CmpGenerator extends ComponentBase
         $this->page['userDetails'] = $user;
     }
 
-    public function onQRCode(){
+    public function onQRCode()
+    {
         $qrvalue = \Input::get('color');
         $color = \Input::get('val');
         $user = Auth::getUser();
         return [
-            '#qrcode_holder' => $this->renderPartial('@qrccode_holder.htm',['qrvalue' => $qrvalue, 'user' => $user, 'choseColor' => $color])
+            '#qrcode_holder' => $this->renderPartial('@qrccode_holder.htm', ['qrvalue' => $qrvalue, 'user' => $user, 'choseColor' => $color])
         ];
     }
 }

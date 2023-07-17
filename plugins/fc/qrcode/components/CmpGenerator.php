@@ -38,8 +38,9 @@ class CmpGenerator extends ComponentBase
         $qrvalue = \Input::get('color');
         $color = \Input::get('val');
         $user = Auth::getUser();
+        $renerObj = ['qrvalue' => $qrvalue, 'user' => $user, 'choseColor' => $color];
         return [
-            '#qrcode_holder' => $this->renderPartial('@qrccode_holder.htm', ['qrvalue' => $qrvalue, 'user' => $user, 'choseColor' => $color])
+            '#qrcode_holder' => $this->renderPartial('@qrccode_holder.htm', $renerObj)
         ];
     }
 }

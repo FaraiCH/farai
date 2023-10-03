@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Quote Generator
+
+# Model Form Field configuration
+form: $/fc/quote/models/quotegenerator/fields.yaml
+
+# Model Class name
+modelClass: Fc\Quote\Models\QuoteGenerator
+
+# Default redirect location
+defaultRedirect: fc/quote/quotegenerator
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: fc/quote/quotegenerator/update/:id
+    redirectClose: fc/quote/quotegenerator
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: fc/quote/quotegenerator
+    redirectClose: fc/quote/quotegenerator
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

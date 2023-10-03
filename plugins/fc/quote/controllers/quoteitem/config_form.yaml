@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Quote Item
+
+# Model Form Field configuration
+form: $/fc/quote/models/quoteitem/fields.yaml
+
+# Model Class name
+modelClass: Fc\Quote\Models\QuoteItem
+
+# Default redirect location
+defaultRedirect: fc/quote/quoteitem
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: fc/quote/quoteitem/update/:id
+    redirectClose: fc/quote/quoteitem
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: fc/quote/quoteitem
+    redirectClose: fc/quote/quoteitem
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

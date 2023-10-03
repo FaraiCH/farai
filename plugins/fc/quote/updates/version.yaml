@@ -1,0 +1,4 @@
+1.0.1:
+   - First version of quote
+   - create_quote_generators_table.php
+   - create_quote_items_table.php

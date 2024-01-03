@@ -32,7 +32,7 @@ class CmQuote extends ComponentBase
 
     public function onRun()
     {
-        $this->quote = QuoteGenerator::all();
         $this->user = Auth::getUser();
+        $this->quote = QuoteGenerator::where('user_id',  $this->user->id)->get();
     }
 }

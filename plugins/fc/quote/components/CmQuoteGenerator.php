@@ -37,12 +37,13 @@ class CmQuoteGenerator extends ComponentBase
     {
         $quoteGenerator = new QuoteGenerator();
         $quoteGenerator->company = \Input::get("company");
-        $quoteGenerator->ponumber = \Input::get("company");
+        $quoteGenerator->ponumber = \Input::get("ponumber");
         $quoteGenerator->logo = \Input::file("logo");
-        $quoteGenerator->from = \Input::get("company");
-        $quoteGenerator->billed = \Input::get("company");
-        $quoteGenerator->shipped = \Input::get("company");
-        $quoteGenerator->terms = \Input::get("company");
+        $quoteGenerator->address = \Input::get("from");
+        $quoteGenerator->billed = \Input::get("billed");
+        $quoteGenerator->shipped = \Input::get("shipped");
+        $quoteGenerator->prefix = \Input::get("prefix");
+        $quoteGenerator->terms = \Input::get("terms");
         $quoteGenerator->user_id = Auth::getUser()->id;
         $quoteGenerator->save();
         \Flash::success("Quote Process Done");

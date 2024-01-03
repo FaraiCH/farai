@@ -17,7 +17,7 @@ class CreateQuoteGeneratorsTable extends Migration
             $table->string('company');
             $table->string('ponumber');
             $table->string('prefix');
-            $table->text('from');
+            $table->text('address');
             $table->text('billed');
             $table->text('shipped');
             $table->text('terms');

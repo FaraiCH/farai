@@ -16,7 +16,7 @@ fields:
         label: Company Logo
         type: fileupload
         span: auto
-    from:
+    address:
         label: From
         type: textarea
         span: auto

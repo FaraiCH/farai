@@ -11,7 +11,7 @@ columns:
 
     ponumber:
         label: PO Number
-    from:
+    address:
         label: From
     billed:
         label: Bills

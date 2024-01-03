@@ -3,6 +3,37 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    company:
+        label: Company Name
+        span: auto
+    ponumber:
+        label: PO Number
+        span: auto
+    prefix:
+        label: Quote Prefix
+        span: auto
+    logo:
+        label: Company Logo
+        type: fileupload
+        span: auto
+    from:
+        label: From
+        type: textarea
+        span: auto
+    billed:
+        label: Billed to
+        type: textarea
+        span: auto
+    shipped:
+        label: Shipped To
+        type: textarea
+        span: auto
+    terms:
+        label: Terms
+        type: textarea
+        span: auto
+    items:
+        label: Items
+        type: partial
+        path: $/fc/quote/models/quotegenerator/items.htm
+

@@ -1,7 +1,6 @@
 <?php namespace Fc\Quote\Models;
 
 use Model;
-
 /**
  * QuoteGenerator Model
  */
@@ -61,12 +60,18 @@ class QuoteGenerator extends Model
      * @var array hasOne and other relations
      */
     public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
+    public $hasMany = [
+        'quoteitems' => ['Fc\Quote\Models\QuoteItem', 'key' => 'quote_id']
+    ];
+    public $belongsTo = [
+        'users' => ['RainLab\User\Models\User']
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
-    public $attachOne = [];
+    public $attachOne = [
+        'logo' => ['System\Models\File']
+    ];
     public $attachMany = [];
 }

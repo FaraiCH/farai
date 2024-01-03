@@ -1,7 +1,9 @@
 <?php namespace Fc\Quote\Components;
 
 use Cms\Classes\ComponentBase;
-
+use Fc\Quote\Models\QuoteGenerator;
+use RainLab\User\Models\User;
+use Auth;
 /**
  * CmQuote Component
  *
@@ -9,6 +11,9 @@ use Cms\Classes\ComponentBase;
  */
 class CmQuote extends ComponentBase
 {
+    public $quote;
+    public $user;
+
     public function componentDetails()
     {
         return [
@@ -27,6 +32,7 @@ class CmQuote extends ComponentBase
 
     public function onRun()
     {
-
+        $this->quote = QuoteGenerator::all();
+        $this->user = Auth::getUser();
     }
 }

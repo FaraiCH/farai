@@ -1,7 +1,6 @@
 <?php namespace Fc\Quote\Models;
 
 use Model;
-
 /**
  * QuoteItem Model
  */
@@ -62,7 +61,9 @@ class QuoteItem extends Model
      */
     public $hasOne = [];
     public $hasMany = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'quote' => ['Fc\Quote\Models\QuoteGenerator', 'key' => 'quote_id']
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

@@ -1,0 +1,8 @@
+quoteitems:
+    label: Quote Items
+    view:
+        list: $/fc/quote/models/quoteitem/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/fc/quote/models/quoteitem/fields.yaml
+        recordsPerPage: 10

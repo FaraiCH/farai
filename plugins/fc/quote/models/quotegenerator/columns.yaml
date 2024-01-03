@@ -6,3 +6,16 @@ columns:
     id:
         label: ID
         searchable: true
+    company:
+        label: Company Name
+
+    ponumber:
+        label: PO Number
+    from:
+        label: From
+    billed:
+        label: Bills
+    shipped:
+        label: Shipped
+    terms:
+        label: Terms

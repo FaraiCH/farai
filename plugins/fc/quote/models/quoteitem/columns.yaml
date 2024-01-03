@@ -6,3 +6,9 @@ columns:
     id:
         label: ID
         searchable: true
+    description:
+        label: Description
+    units:
+        label: Units
+    price:
+        label: Price

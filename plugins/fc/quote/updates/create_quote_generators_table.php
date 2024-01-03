@@ -14,8 +14,12 @@ class CreateQuoteGeneratorsTable extends Migration
         Schema::create('fc_quote_quote_generators', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->nullable()->index();
-            $table->text('address');
-            $table->text('billing_address');
+            $table->string('company');
+            $table->string('ponumber');
+            $table->string('prefix');
+            $table->text('from');
+            $table->text('billed');
+            $table->text('shipped');
             $table->text('terms');
             $table->timestamps();
         });
@@ -23,6 +27,6 @@ class CreateQuoteGeneratorsTable extends Migration
 
     public function down()
     {
-//        Schema::dropIfExists('fc_quote_quote_generators');
+        Schema::dropIfExists('fc_quote_quote_generators');
     }
 }

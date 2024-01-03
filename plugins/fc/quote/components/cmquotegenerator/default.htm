@@ -3,7 +3,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h2 class="text-center mb-6">Quote Generator</h2>
-            <form>
+            {% if CmQuoteGenerator.user is empty %}
+                <h5 class="text-center text-danger mb-6">You need to be signed in to <em>Create</em> and <em>Download</em> a quote.</h5>
+            {% endif %}
+            <form data-request-files enctype="multipart/form-data" data-request-flash="true" data-request="onGenerate">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="company">Company Name</label>
@@ -11,22 +14,22 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="logo">Quote Logo</label>
-                        <input type="file" class="form-control" id="logo" name="logo" placeholder="Enter your email" required>
+                        <input type="file" accept="image/*," class="form-control" id="logo" name="logo" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">From</label>
-                    <textarea class="form-control" id="message" rows="4" placeholder="Please put in your details, example: &#10;2 Count Square &#10;New York, Ny 12210" required></textarea>
+                    <label for="from">From</label>
+                    <textarea class="form-control" id="from" name="from" rows="4" placeholder="Please put in your details, example: &#10;2 Count Square &#10;New York, Ny 12210" required></textarea>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="prefix">Quote Prefix</label>
-                        <input type="email" class="form-control" id="prefix" name="prefix" placeholder="Default code in front of the quote number" required>
+                        <input type="text" class="form-control" id="prefix" name="prefix" placeholder="Default code in front of the quote number" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="ponumber">PO Number</label>
-                        <input type="email" class="form-control" id="ponumber" name="ponumber" placeholder="Enter your PO number" required>
+                        <input type="text" class="form-control" id="ponumber" name="ponumber" placeholder="Enter your PO number" required>
                     </div>
                 </div>
                 <div class="row">
@@ -43,9 +46,11 @@
                     <label for="terms">Terms and Conditions</label>
                     <textarea class="form-control" id="terms" name="terms" rows="4" placeholder="Put the terms and conditions for this quote. This will show at the bottom." required></textarea>
                 </div>
-                <div class="mt-4 text-center">
-                    <button type="submit" class="btn btn-primary btn-lg" data-request="onGenerate">Generate Quote</button>
-                </div>
+                {% if CmQuoteGenerator.user is not empty %}
+                    <div class="mt-4 text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Generate Quote</button>
+                    </div>
+                {% endif %}
             </form>
         </div>
     </div>

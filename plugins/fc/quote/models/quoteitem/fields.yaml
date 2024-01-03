@@ -3,6 +3,14 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    description:
+        label: Description
+        type: textarea
+    units:
+        label: Units
+        type: number
+        span: auto
+    price:
+        label: Price
+        type: number
+        span: auto

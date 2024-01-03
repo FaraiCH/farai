@@ -23,6 +23,6 @@ class CreateQuoteItemsTable extends Migration
 
     public function down()
     {
-//        Schema::dropIfExists('fc_quote_quote_items');
+        Schema::dropIfExists('fc_quote_quote_items');
     }
 }

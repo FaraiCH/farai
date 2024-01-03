@@ -81,13 +81,11 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
         return [
             'quote' => [
-                'label'       => 'quote',
-                'url'         => Backend::url('fc/quote/mycontroller'),
-                'icon'        => 'icon-leaf',
+                'label'       => 'Quote Generator',
+                'url'         => Backend::url('fc/quote/quotegenerator'),
+                'icon'        => 'icon-file-pdf-o',
                 'permissions' => ['fc.quote.*'],
                 'order'       => 500,
             ],

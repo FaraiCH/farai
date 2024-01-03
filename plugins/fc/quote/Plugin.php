@@ -50,10 +50,10 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
-
         return [
-            'Fc\Quote\Components\MyComponent' => 'myComponent',
+            'Fc\Quote\Components\CmQuote' => 'CmQuote',
+            'Fc\Quote\Components\CmQuoteGenerator' => 'CmQuoteGenerator',
+            'Fc\Quote\Components\CmQuoteItem' => 'CmQuoteItem',
         ];
     }
 

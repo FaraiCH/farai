@@ -46,6 +46,17 @@
                     <label for="terms">Terms and Conditions</label>
                     <textarea class="form-control" id="terms" name="terms" rows="4" placeholder="Put the terms and conditions for this quote. This will show at the bottom." required></textarea>
                 </div>
+                <br>
+                <div id="item" class="text-center" style="padding: 0 10px">
+
+                </div>
+                <div id="button">
+                    <button type="submit" class="btn btn-primary rounded-circle" data-request-flash="true" data-request="onItems">
+                        <span class="bi bi-plus" aria-hidden="true"></span>
+                    </button>
+                    Add Item
+                </div>
+
                 {% if CmQuoteGenerator.user is not empty %}
                     <div class="mt-4 text-center">
                         <button type="submit" class="btn btn-primary btn-lg">Generate Quote</button>
@@ -54,4 +65,7 @@
             </form>
         </div>
     </div>
+    <template>
+
+    </template>
 </div>

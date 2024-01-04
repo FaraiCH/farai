@@ -48,4 +48,33 @@ class CmQuoteGenerator extends ComponentBase
         $quoteGenerator->save();
         \Flash::success("Quote Process Done");
     }
+
+    public function onItems(){
+
+        if(\Input::get('no')){
+            $no = \Input::get('no')+1;
+            return[
+                "#item_new_". $no => $this->renderPartial('@main_item', ['no' => $no]),
+                "#button" => $this->renderPartial('@add_button', ['no' => $no]),
+                \Flash::success("Item Created")
+            ];
+        }else{
+            return[
+                "#item" => $this->renderPartial('@main_item', ['no' => 1]),
+                "#button"=> $this->renderPartial('@add_button', ['no' => 1]),
+                \Flash::success("Item Created")
+            ];
+        }
+
+    }
+    public function onDeleteItem()
+    {
+        if(\Input::get('no')){
+            $no = \Input::get('no');
+            return[
+                "#item_". $no => $this->renderPartial('@empty', ['no' => $no]),
+                \Flash::success("Item Created")
+            ];
+        }
+    }
 }

@@ -1,0 +1,30 @@
+
+{% if no is not empty %}
+    <div id="item_{{no}}">
+        <div class="row">
+            <span>Item No: {{no}}</span>
+            <div class="form-group col-md-3">
+                <label for="qty">QTY</label>
+                <input type="number" class="form-control" id="qty" name="qty" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" name="description" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" name="price" required>
+            </div>
+            <div class="form-group col-md-3">
+                <button type="button" class="btn btn-danger" data-request="onDeleteItem" data-request-data="no: {{no}}" style="margin: 20px 0">
+                    <span class="bi bi-trash"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="item_new_{{no+1}}">
+
+    </div>
+{% else %}
+    sdafsdfsdfgsdgsdfg
+{% endif %}

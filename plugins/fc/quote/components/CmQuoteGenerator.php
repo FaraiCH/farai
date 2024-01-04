@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Auth;
 use Fc\Quote\Models\QuoteGenerator;
+use Fc\Quote\Models\QuoteItem;
 
 /**
  * CmQuoteGenerator Component
@@ -46,6 +47,20 @@ class CmQuoteGenerator extends ComponentBase
         $quoteGenerator->terms = \Input::get("terms");
         $quoteGenerator->user_id = Auth::getUser()->id;
         $quoteGenerator->save();
+        $qtys = \Input::get('qty');
+        $descriptions = \Input::get('description');
+        $price = \Input::get('price');
+        $count = 0;
+        if(!empty($qtys)){
+            foreach ($qtys as $qty){
+                $quoteItem = new QuoteItem();
+                $quoteItem->units = $qty;
+                $quoteItem->description = $descriptions[$count];
+                $quoteItem->price = $price[$count];
+                $quoteItem->quote_id = $quoteGenerator->id;
+                $quoteItem->save();
+            }
+        }
         \Flash::success("Quote Process Done");
     }
 

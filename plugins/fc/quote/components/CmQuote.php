@@ -33,6 +33,12 @@ class CmQuote extends ComponentBase
     public function onRun()
     {
         $this->user = Auth::getUser();
-        $this->quote = QuoteGenerator::where('user_id',  $this->user->id)->get();
+        $quoteMade = QuoteGenerator::where('user_id',  $this->user->id)->get();
+        if(empty($quoteMade)){
+            $this->quote = $quoteMade;
+        }else{
+            $this->quote = [];
+        }
+
     }
 }

@@ -10,11 +10,15 @@
 <div style="padding: 50px"></div>
 <div class="container mt-5">
     <div class="button-section">
-        <div class="container" style="padding: 50px">
-            <iframe src="/quote/preview/stream/{{CmPreview.quote.id}}" title="Quote Preview" height="600px" width="100%"></iframe>
-        </div>
-        <div>
-            <button class="btn btn-primary btn-lg">Download Quote .pdf</button>
-        </div>
+        {% if CmPreview.quote.id is not empty %}
+            <div class="container" style="padding: 50px">
+                <iframe src="/quote/preview/stream/{{CmPreview.quote.id}}" title="Quote Preview" height="600px" width="100%"></iframe>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-lg">Download Quote .pdf</button>
+            </div>
+        {% else %}
+            <h2>Please Sign in to Preview and Download Quote.</h2>
+        {% endif %}
     </div>
 </div>

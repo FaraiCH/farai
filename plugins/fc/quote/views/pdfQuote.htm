@@ -7,7 +7,7 @@
  <table class="table table-borderless">
      <tr>
          <td width="70%">
-             <h3>Quote</h3>
+             <h2>Quote</h2>
          </td>
          <td>
              <img src="{{quote.logo.getThumb(50,50,'Crop')}}" alt="img">
@@ -39,17 +39,17 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{quote.billed}}</td>
-            <td>{{quote.shipped}}</td>
+            <td>{{quote.billed|nl2br}}</td>
+            <td>{{quote.shipped|nl2br}}</td>
             <td></td>
         </tr>
     </tbody>
 </table>
 
 
-<table class="table table-success">
+<table class="table table-bordered">
     <thead>
-        <tr>
+        <tr style="background: dodgerblue; color: white;">
             <th>Item No</th>
             <th>Description</th>
             <th>Unit</th>

@@ -47,7 +47,6 @@ class CmQuoteGenerator extends ComponentBase
         $quoteGenerator->prefix = \Input::get("prefix");
         $quoteGenerator->terms = \Input::get("terms");
         $quoteGenerator->user_id = Auth::getUser()->id;
-        $quoteGenerator->pdf_file = $this->CreatePDF();
         $quoteGenerator->save();
         $qtys = \Input::get('qty');
         $descriptions = \Input::get('description');

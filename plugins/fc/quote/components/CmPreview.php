@@ -1,7 +1,8 @@
 <?php namespace Fc\Quote\Components;
 
 use Cms\Classes\ComponentBase;
-
+use Fc\Quote\Models\QuoteGenerator;
+use Auth;
 /**
  * CmPreview Component
  *
@@ -9,6 +10,8 @@ use Cms\Classes\ComponentBase;
  */
 class CmPreview extends ComponentBase
 {
+    public $quote;
+    public $user;
     public function componentDetails()
     {
         return [
@@ -33,6 +36,15 @@ class CmPreview extends ComponentBase
     }
 
     public function onRun(){
-
+        $item = $this->property('item');
+        $this->user = Auth::getUser();
+        if(!empty($this->user)){
+            $quoteMade = QuoteGenerator::where('user_id',  $this->user->id)->where('id', $item)->first();
+            if(!empty($quoteMade)){
+                $this->quote = $quoteMade;
+            }else{
+                $this->quote = [];
+            }
+        }
     }
 }

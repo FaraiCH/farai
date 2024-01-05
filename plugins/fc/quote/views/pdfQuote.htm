@@ -1,1 +1,77 @@
-sdfgasdgsedfsedfsdfs
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+ <img src="{{quote.logo.getPath()}}" alt="img">
+<table class="table table-borderless" style="border-top: 20px solid dodgerblue;">
+    <tr>
+        <td width="65%">
+            <b>FROM:</b> <br>
+            {{quote.company}} <br>
+            {{quote.address|nl2br}}
+        </td>
+        <td>
+            <b>QUOTE #:</b>&nbsp;{{quote.prefix}}-{{quote.id}}<br>
+            <b>QUOTE DATE:</b>&nbsp;{{quote.created_at|date('Y-m-d')}}<br>
+            <b>P.O #:</b>&nbsp;{{quote.ponumber}}
+        </td>
+    </tr>
+</table>
+
+<table class="table table-borderless">
+    <thead>
+        <tr>
+            <th>Billed To</th>
+            <th>Shipped To</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{quote.billed}}</td>
+            <td>{{quote.shipped}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table class="table table-success">
+    <thead>
+        <tr>
+            <th>Item No</th>
+            <th>Description</th>
+            <th>Unit</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% set totalprice = 0 %}
+    {% for item in quote.quoteitems %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.units}}</td>
+            <td>{{item.price}}</td>
+            <td>{{(item.units * item.price)|number_format(2)}}</td>
+            {% set totalprice = tottotalpriceal + (item.units * item.price) %}
+        </tr>
+    {% endfor %}
+    <tfoot>
+        <tr>
+            <td colspan="4" style="text-align: right;">VAT</td>
+            <td colspan="4" >15%</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: right;">Total</td>
+            <td colspan="4">{{((totalprice * 0.15) + (totalprice))|number_format(2)}}</td>
+        </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>
+
+

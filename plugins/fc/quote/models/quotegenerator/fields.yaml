@@ -32,6 +32,10 @@ fields:
         label: Terms
         type: textarea
         span: auto
+    pdf_file:
+        label: PDF
+        type: fileupload
+        span: auto
     items:
         label: Items
         type: partial

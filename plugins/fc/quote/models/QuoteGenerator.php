@@ -71,7 +71,8 @@ class QuoteGenerator extends Model
     public $morphOne = [];
     public $morphMany = [];
     public $attachOne = [
-        'logo' => ['System\Models\File']
+        'logo' => ['System\Models\File'],
+        'pdf_file' => ['System\Models\File']
     ];
     public $attachMany = [];
 }

@@ -4,6 +4,7 @@ use Cms\Classes\ComponentBase;
 use Auth;
 use Fc\Quote\Models\QuoteGenerator;
 use Fc\Quote\Models\QuoteItem;
+use Renatio\DynamicPDF\Classes\PDF;
 
 /**
  * CmQuoteGenerator Component
@@ -46,6 +47,7 @@ class CmQuoteGenerator extends ComponentBase
         $quoteGenerator->prefix = \Input::get("prefix");
         $quoteGenerator->terms = \Input::get("terms");
         $quoteGenerator->user_id = Auth::getUser()->id;
+        $quoteGenerator->pdf_file = $this->CreatePDF();
         $quoteGenerator->save();
         $qtys = \Input::get('qty');
         $descriptions = \Input::get('description');
@@ -61,7 +63,10 @@ class CmQuoteGenerator extends ComponentBase
                 $quoteItem->save();
             }
         }
-        \Flash::success("Quote Process Done");
+        return[
+            \Flash::success("Quote Process Done"),
+            \Redirect::to('/quote/preview/'. $quoteGenerator->id)
+        ];
     }
 
     public function onItems(){

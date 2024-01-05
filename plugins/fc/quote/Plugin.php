@@ -54,6 +54,7 @@ class Plugin extends PluginBase
             'Fc\Quote\Components\CmQuote' => 'CmQuote',
             'Fc\Quote\Components\CmQuoteGenerator' => 'CmQuoteGenerator',
             'Fc\Quote\Components\CmQuoteItem' => 'CmQuoteItem',
+            'Fc\Quote\Components\CmPreview' => 'CmPreview',
         ];
     }
 

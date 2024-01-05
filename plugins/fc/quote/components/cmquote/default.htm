@@ -24,10 +24,10 @@
                         <div class="col-md-4 mb-4">
                             <div class="card">
                                 <img src="{{item.logo.getPath()}}" height="400" class="card-img-top" alt="Card Image">
-                                <div class="card-body">
+                                <a class="card-body" href="/quote/preview/{{item.id}}">
                                     <h5 class="card-title">{{item.company}}</h5>
                                     <p class="card-text">{{item.address}}</p>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     {% endfor %}

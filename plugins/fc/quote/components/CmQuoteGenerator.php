@@ -62,10 +62,7 @@ class CmQuoteGenerator extends ComponentBase
                 $quoteItem->save();
             }
         }
-        return[
-            \Flash::success("Quote Process Done"),
-            \Redirect::to('/quote/preview/'. $quoteGenerator->id)
-        ];
+        return \Redirect::to('/quote/preview/'. $quoteGenerator->id);
     }
 
     public function onItems(){

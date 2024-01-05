@@ -10,6 +10,10 @@
 <div style="padding: 50px"></div>
 <div class="container mt-5">
     <div class="button-section">
+        <a class="btn btn-info pull-left" href="/quote/home">
+            <span class="bi bi-house"></span>
+            Go Home
+        </a>
         {% if CmPreview.quote.id is not empty %}
             <div class="container" style="padding: 50px">
                 <iframe src="/quote/preview/stream/{{CmPreview.quote.id}}" title="Quote Preview" height="600px" width="100%"></iframe>

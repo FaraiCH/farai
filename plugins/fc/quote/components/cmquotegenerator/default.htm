@@ -6,7 +6,7 @@
             {% if CmQuoteGenerator.user is empty %}
                 <h5 class="text-center text-danger mb-6">You need to be signed in to <em>Create</em> and <em>Download</em> a quote.</h5>
             {% endif %}
-            <form data-request-files enctype="multipart/form-data" data-request-flash="true" data-request="onGenerate">
+            <form data-request-files enctype="multipart/form-data" data-request-flash="true" data-request="onGenerate" data-request-confirm="Are you sure you want to create this quote? Please make sure that this quote is correct. Only I will be able to edit it.">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="company">Company Name</label>

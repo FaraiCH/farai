@@ -26,5 +26,35 @@
 
     </div>
 {% else %}
-    sdafsdfsdfgsdgsdfg
+    {% if quoteObj is not empty %}
+        {% set counter = 1 %}
+        {% for item in quoteObj.quoteitems %}
+            <div id="item_{{counter}}">
+                <div class="row">
+                    <span>Item No: {{counter}}</span>
+                    <div class="form-group col-md-3">
+                        <label for="qty">QTY</label>
+                        <input type="number" class="form-control" id="qty" name="qty[]" value="{{item.units}}" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" name="description[]" value="{{item.description}}" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" id="price" name="price[]" value="{{item.price}}" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button type="button" class="btn btn-danger" data-request="onDeleteItem" data-request-data="no: {{counter}}" style="margin: 20px 0">
+                            <span class="bi bi-trash"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="item_new_{{counter+1}}">
+
+            </div>
+            {% set counter = counter + 1 %}
+        {% endfor %}
+    {% endif %}
 {% endif %}

@@ -2,5 +2,116 @@ url = "/map/view"
 layout = "default"
 title = "map"
 ==
+<style>
+    #svg-container {
+        width: 100%; /* Adjust as needed */
+        overflow: auto; /* Enable scrolling if necessary */
+    }
 
-<img src="{{'assets/img/tafadzwa/word-map.svg' | theme }}" alt="Map">
+    .my-svg {
+        display: block;
+        margin: auto;
+        transition: transform 0.3s ease;
+    }
+</style>
+<div id="controls">
+    <button id="zoom-in-btn">Zoom In</button>
+    <button id="zoom-out-btn">Zoom Out</button>
+    <button id="reset-zoom-btn">Reset Zoom</button>
+</div>
+
+<div id="svg-container">
+
+    <object class="my-svg" type="image/svg+xml" data="{{'assets/img/tafadzwa/word-map.svg' | theme }}">
+        Your browser does not support SVG
+    </object>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const svgObject = document.querySelector('.my-svg');
+        let currentScale = 1;
+        let isDragging = false;
+        let startMouseX, startMouseY, startTranslateX = 0, startTranslateY = 0;
+
+        // Zoom in function
+        function zoomIn() {
+            currentScale += 0.2;
+            applyTransform();
+        }
+
+        // Zoom out function
+        function zoomOut() {
+            currentScale -= 0.2;
+            applyTransform();
+        }
+
+        // Reset zoom function
+        function resetZoom() {
+            currentScale = 1;
+            startTranslateX = 0;
+            startTranslateY = 0;
+            applyTransform();
+        }
+
+        // Apply transformation function
+        function applyTransform() {
+            svgObject.style.transform = `scale(${currentScale}) translate(${startTranslateX}px, ${startTranslateY}px)`;
+        }
+
+        // Mouse down event handler
+        function handleMouseDown(event) {
+            if (event.target === svgObject) {
+                isDragging = true;
+                startMouseX = event.clientX;
+                startMouseY = event.clientY;
+                startTranslateX = startTranslateX || 0;
+                startTranslateY = startTranslateY || 0;
+                svgObject.style.cursor = 'grabbing';
+                event.stopPropagation();
+            }
+        }
+
+        // Mouse move event handler
+        function handleMouseMove(event) {
+            if (isDragging) {
+                const deltaX = event.clientX - startMouseX;
+                const deltaY = event.clientY - startMouseY;
+                startTranslateX += deltaX;
+                startTranslateY += deltaY;
+                applyTransform();
+                startMouseX = event.clientX;
+                startMouseY = event.clientY;
+            }
+        }
+
+        // Mouse up event handler
+        function handleMouseUp() {
+            isDragging = false;
+            svgObject.style.cursor = 'grab';
+        }
+
+        // Event listeners for dragging on SVG object
+        svgObject.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
+
+        // Event listeners for zoom buttons
+        document.getElementById('zoom-in-btn').addEventListener('click', zoomIn);
+        document.getElementById('zoom-out-btn').addEventListener('click', zoomOut);
+        document.getElementById('reset-zoom-btn').addEventListener('click', resetZoom);
+
+        // Ensure SVG is loaded before applying transformations
+        svgObject.addEventListener('load', function () {
+            applyTransform();
+        });
+
+        // Prevent default browser drag behavior
+        svgObject.addEventListener('dragstart', function (event) {
+            event.preventDefault();
+        });
+    });
+</script>
+
+

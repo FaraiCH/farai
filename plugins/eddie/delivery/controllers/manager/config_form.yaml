@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Manager
+
+# Model Form Field configuration
+form: $/eddie/delivery/models/manager/fields.yaml
+
+# Model Class name
+modelClass: Eddie\Delivery\Models\Manager
+
+# Default redirect location
+defaultRedirect: eddie/delivery/manager
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: eddie/delivery/manager/update/:id
+    redirectClose: eddie/delivery/manager
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: eddie/delivery/manager
+    redirectClose: eddie/delivery/manager
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

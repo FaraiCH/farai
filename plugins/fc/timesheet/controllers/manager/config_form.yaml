@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Manager
+
+# Model Form Field configuration
+form: $/fc/timesheet/models/manager/fields.yaml
+
+# Model Class name
+modelClass: Fc\Timesheet\Models\Manager
+
+# Default redirect location
+defaultRedirect: fc/timesheet/manager
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: fc/timesheet/manager/update/:id
+    redirectClose: fc/timesheet/manager
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: fc/timesheet/manager
+    redirectClose: fc/timesheet/manager
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

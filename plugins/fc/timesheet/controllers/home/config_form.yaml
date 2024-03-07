@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Home
+
+# Model Form Field configuration
+form: $/fc/timesheet/models/home/fields.yaml
+
+# Model Class name
+modelClass: Fc\Timesheet\Models\Home
+
+# Default redirect location
+defaultRedirect: fc/timesheet/home
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: fc/timesheet/home/update/:id
+    redirectClose: fc/timesheet/home
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: fc/timesheet/home
+    redirectClose: fc/timesheet/home
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

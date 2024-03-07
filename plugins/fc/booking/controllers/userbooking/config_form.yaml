@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: User Booking
+
+# Model Form Field configuration
+form: $/fc/booking/models/userbooking/fields.yaml
+
+# Model Class name
+modelClass: Fc\Booking\Models\UserBooking
+
+# Default redirect location
+defaultRedirect: fc/booking/userbooking
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: fc/booking/userbooking/update/:id
+    redirectClose: fc/booking/userbooking
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: fc/booking/userbooking
+    redirectClose: fc/booking/userbooking
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

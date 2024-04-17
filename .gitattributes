@@ -1,2 +1,3 @@
 * text=auto
 *.php linguist-language=PHP
+*.php diff=php

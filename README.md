@@ -1,10 +1,7 @@
 <p align="center">
-    <img src="https://github.com/octobercms/october/blob/develop/themes/demo/assets/images/october.png?raw=true" alt="October" width="25%" height="25%" />
+    <img src="https://farai-chakarisa.co.za/storage/app/media/farias-channel-pro-pic-1.png" alt="Farai" width="25%" height="25%" />
 </p>
 
-[October](https://octobercms.com) is a Content Management System (CMS) and web platform whose sole purpose is to make your development workflow simple again. It was born out of frustration with existing systems. We feel building websites has become a convoluted and confusing process that leaves developers unsatisfied. We want to turn you around to the simpler side and get back to basics.
-
-October's mission is to show the world that web development is not rocket science.
 
 [![Build Status](https://github.com/octobercms/library/actions/workflows/tests.yml/badge.svg)](https://octobercms.com/)
 [![Downloads](https://img.shields.io/packagist/dt/october/rain)](https://docs.octobercms.com/)

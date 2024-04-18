@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Api User
+
+# Model Form Field configuration
+form: $/eddie/delivery/models/apiuser/fields.yaml
+
+# Model Class name
+modelClass: Eddie\Delivery\Models\ApiUser
+
+# Default redirect location
+defaultRedirect: eddie/delivery/apiuser
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: eddie/delivery/apiuser/update/:id
+    redirectClose: eddie/delivery/apiuser
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: eddie/delivery/apiuser
+    redirectClose: eddie/delivery/apiuser
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

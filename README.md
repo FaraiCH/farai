@@ -1,24 +1,28 @@
 <p align="center">
     <img src="https://farai-chakarisa.co.za/storage/app/media/farias-channel-pro-pic-1.png" alt="Farai" width="25%" height="25%" />
 </p>
+<div align="center">
 
-
-[![Build Status](https://github.com/octobercms/library/actions/workflows/tests.yml/badge.svg)](https://octobercms.com/)
-[![Downloads](https://img.shields.io/packagist/dt/october/rain)](https://docs.octobercms.com/)
-[![Version](https://img.shields.io/packagist/v/october/october)](https://octobercms.com/changelog)
+<a href="https://farai-chakarisa.co.za/"><img src="https://farai-chakarisa.co.za/storage/app/media/Asset1.svg" height="19"></a>
+<a href="https://www.linkedin.com/in/farai-chakarisa-0b284b135/"><img src="https://farai-chakarisa.co.za/storage/app/media/Asset2.svg" height="19"></a>
+<a href="https://farai-chakarisa.co.za/"><img src="https://farai-chakarisa.co.za/storage/app/media/Asset3.svg" height="19"></a>
 [![License](https://poser.pugx.org/october/october/license.svg)](./LICENSE.md)
 
-> *Please note*: October is open source but it is not free software. A license with a small fee is required for each website you build with October CMS.
+</div>
+
+
+
+> *Please note*: This project is free to use. The licensing is not free. To install the project, you would need to purchase and October CMS License key as that is the background of this site
 
 ## Installing October
 
-Instructions on how to install October can be found at the [installation guide](https://docs.octobercms.com/3.x/setup/installation.html).
+This site was created using October CMS V3 with Laravel 9 and PHP 8.1.
 
 ### Quick Start Installation
 
-If you have composer installed, run this in your terminal to install October CMS from command line. This will place the files in a directory named **myoctober**.
+Download the project and type the following command (Make sure you have composer installed first):
 
-    composer create-project october/october myoctober
+    composer install
 
 If you plan on using a database, run this command inside the application directory.
 
@@ -42,11 +46,11 @@ Please follow the following guides and code standards:
 
 ## Security Vulnerabilities
 
-Please review [our security policy](https://github.com/octobercms/october/security/policy) on how to report security vulnerabilities.
+This project is based on October CMS. Please review [their security policy](https://github.com/octobercms/october/security/policy) on how to report security vulnerabilities.
 
 ## Development Team
 
-October CMS was created by [Alexey Bobkov](https://www.linkedin.com/in/alexey-bobkov-232ba02b/) and [Samuel Georges](https://www.linkedin.com/in/samuel-georges-0a964131/), who both continue to develop the platform.
+I am currently the only developer managing this site.
 
 ## Foundation library
 
@@ -56,15 +60,8 @@ The CMS uses [Laravel](https://laravel.com) as a foundation PHP framework.
 
 For announcements and updates:
 
-* [Contact Us Page](http://octoberdev.test/contact)
-* [Follow us on Twitter](https://twitter.com/octobercms)
-* [Like us on Facebook](https://facebook.com/octobercms)
-
-To chat or hang out:
-
-* [Join us on Slack](https://octobercms.slack.com)
-* [Join us on Discord](https://discord.gg/gEKgwSZ)
-* [Join us on Telegram](https://t.me/octoberchat)
+* [Contact Us Page](http://farai-chakarisa.co.za)
+* [Youtube](https://www.youtube.com/channel/UCnAMZnobdm0wY5-qo7AN0hg)
 
 ## License
 

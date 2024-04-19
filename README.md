@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://farai-chakarisa.co.za/storage/app/media/farias-channel-pro-pic-1.png" alt="Farai" width="25%" height="25%" />
+    <img src="https://farai-chakarisa.co.za/storage/app/media/farias-channel-pro-pic-6.png" alt="Farai" width="25%" height="25%" />
 </p>
 <div align="center">
 

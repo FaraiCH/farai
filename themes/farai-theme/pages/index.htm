@@ -6,19 +6,29 @@ url = "/"
 [CmpSignin]
 ==
 <style>
-    #hero1{
-        background: url('themes/farai-theme/assets/video/banner.gif') no-repeat center center;
-        background-size: cover;
-        color: white; /* Ensure the text is visible over the background */
-        height: 100%; /* Make the section cover the full height of the viewport */
-        text-align: center; /* Center text */
+    #hero1 {
         position: relative;
-
+        color: white; /* Ensure the text is visible over the background */
+        height: 100vh; /* Make the section cover the full height of the viewport */
+        text-align: center; /* Center text */
+        overflow: hidden; /* Hide overflow */
     }
-    .content2{
-        margin-top:34%;
 
+    #background-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: -1; /* Ensure the video is behind the content */
     }
+
+    .content2 {
+        margin-top: 34%;
+    }
+
     @keyframes glow {
         0% {
             opacity: 1;
@@ -96,6 +106,11 @@ url = "/"
         </div>
 
     </div>
+
+    <video autoplay muted loop id="background-video">
+        <source src="themes/farai-theme/assets/video/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </section><!-- End Hero -->
 
   <main id="main">

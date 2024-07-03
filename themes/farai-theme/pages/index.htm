@@ -5,6 +5,40 @@ url = "/"
 [contactForm]
 [CmpSignin]
 ==
+<style>
+    #hero1{
+        background: url('themes/farai-theme/assets/video/banner.gif') no-repeat center center;
+        background-size: cover;
+        color: white; /* Ensure the text is visible over the background */
+        height: 100%; /* Make the section cover the full height of the viewport */
+        text-align: center; /* Center text */
+        position: relative;
+
+    }
+    .content2{
+        margin-top:34%;
+
+    }
+    @keyframes glow {
+        0% {
+            opacity: 1;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
+        }
+        50% {
+            opacity: 0.7;
+            text-shadow: none;
+        }
+        100% {
+            opacity: 1;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
+        }
+    }
+
+    /* Apply the animation to the button */
+    .glow {
+        animation: glow 2s ease-in-out infinite;
+    }
+</style>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
@@ -15,12 +49,12 @@ url = "/"
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#hero"><b>Home</b></a></li>
+          <li><a class="nav-link scrollto" href="#about"><b>About</b></a></li>
+          <li><a class="nav-link scrollto" href="#services"><b>Services</b></a></li>
 <!--          <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>-->
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#team"><b>Team</b></a></li>
+            <li><a class="nav-link scrollto" href="#contact"><b>Contact</b></a></li>
             {% if CmpSignin.user() is empty %}
 
               <li class="second-get dropdown"><a>Account<i class="bi bi-chevron-down"></i></a>
@@ -51,26 +85,18 @@ url = "/"
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero1" class="hero d-flex align-items-center">
-
+<!-- ======= Hero Section ======= -->
+<section id="hero1" class="hero">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Creating solutions that suit any business</h1>
-          <h2>With experience in the industry, weather, service delivery and digital sector</h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=Kv9eYWG3pdk&t" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Tutorial Example</span></a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="/themes/farai-theme/assets/img/hero-img.png" class="img-fluid animated" alt="">
-        </div>
-      </div>
-    </div>
 
-  </section><!-- End Hero -->
+        <div class="content2" data-aos="fade-up" data-aos-delay="500">
+            <div style="text-align: center;">
+                <a href="#about" style="max-width: 40%; font-size: 16px; font-family: 'Poppins' " class="btn-get-started scrollto glow"><b>Get Started</b></a>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Hero -->
 
   <main id="main">
 
@@ -126,7 +152,9 @@ url = "/"
             <ul>
               <li><i class="ri-check-double-line"></i> I have created document management software solutions for companies</li>
               <li><i class="ri-check-double-line"></i> I have created websites for companies</li>
-              <li><i class="ri-check-double-line"></i> I provide consulting and personal tutoring on software development in various business sectors</li>
+              <li><i class="ri-check-double-line"></i> I provide consulting and personal tutoring on software development in various business sectors
+             </li>
+                <li><a href="https://www.youtube.com/watch?v=Kv9eYWG3pdk&t" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Tutorial Example</span></a></li>
             </ul>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
@@ -651,3 +679,9 @@ url = "/"
       </div>
     </div>
   </footer><!-- End Footer -->
+<script>
+    import _scope_text from "../../../modules/backend/widgets/filter/partials/_scope_text.htm";
+    export default {
+        components: {_scope_text}
+    }
+</script>

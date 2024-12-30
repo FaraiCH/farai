@@ -48,7 +48,7 @@ h6 {
 }
 
 #preloader:before {
-  content: "Loading Assets";
+  content: "";
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);

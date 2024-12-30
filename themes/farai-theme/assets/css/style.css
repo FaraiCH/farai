@@ -397,7 +397,7 @@ h6 {
   background: #181f2d;
 }
 
-.hero .container {
+.get-started-container {
   padding-top: 72px;
 }
 
@@ -417,7 +417,7 @@ h6 {
 
 .btn-get-started {
   font-family: "Jost", sans-serif;
-  font-weight: 16;
+  font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
   display: inline-block;

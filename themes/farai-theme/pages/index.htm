@@ -6,14 +6,28 @@ url = "/"
 [CmpSignin]
 ==
 <style>
-    #hero1{
-        background: url('themes/farai-theme/assets/video/banner.gif') no-repeat center center;
-        background-size: cover;
-        color: white; /* Ensure the text is visible over the background */
-        height: 100%; /* Make the section cover the full height of the viewport */
-        text-align: center; /* Center text */
+    #hero1 {
         position: relative;
+        height: 100vh; /* Full viewport height */
+        overflow: hidden; /* Ensure video stays within the section */
+        color: white;
+        text-align: center;
+    }
 
+    .video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Place the video behind other content */
+        overflow: hidden;
+    }
+
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the video covers the entire area */
     }
     .content2{
         margin-top:34%;
@@ -87,14 +101,19 @@ url = "/"
 
 <!-- ======= Hero Section ======= -->
 <section id="hero1" class="hero">
-    <div class="container">
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="themes/farai-theme/assets/video/banner.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
+    <div class="container">
         <div class="content2" data-aos="fade-up" data-aos-delay="500">
             <div style="text-align: center;">
-                <a href="#about" style="max-width: 40%; font-size: 16px; font-family: 'Poppins' " class="btn-get-started scrollto glow"><b>Get Started</b></a>
+                <a href="#about" style="max-width: 40%; font-size: 16px; font-family: 'Poppins'" class="btn-get-started scrollto glow"><b>Get Started</b></a>
             </div>
         </div>
-
     </div>
 </section><!-- End Hero -->
 

@@ -1,0 +1,10 @@
+title = "project category"
+layout = "default"
+url = "/project/category/:slug"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "category"
+==
+{% component 'blogCategories' %}
